@@ -1,0 +1,21 @@
+tap "homebrew/bundle"
+
+brew "chezmoi"
+brew "git"
+brew "gh"
+brew "jq"
+brew "ripgrep"
+brew "fd"
+brew "fzf"
+brew "bat"
+brew "eza"
+brew "starship"
+brew "zoxide"
+brew "direnv"
+
+cask "1password"
+cask "1password-cli"
+cask "visual-studio-code"
+cask "google-chrome"
+cask "slack"
+

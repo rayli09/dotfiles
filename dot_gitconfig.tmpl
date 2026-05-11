@@ -1,0 +1,23 @@
+[user]
+	name = {{ .git_name | quote }}
+	email = {{ .git_email | quote }}
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[push]
+	autoSetupRemote = true
+
+[rerere]
+	enabled = true
+
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+
+[credential]
+	helper = osxkeychain
+

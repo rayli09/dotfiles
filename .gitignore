@@ -1,0 +1,10 @@
+.DS_Store
+.chezmoi.local.toml
+*.age
+*.key
+*.pem
+*.p12
+*.mobileprovision
+id_*
+!private_dot_ssh/config.tmpl
+
