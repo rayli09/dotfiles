@@ -22,6 +22,29 @@ cd ~/dev/dotfiles
 ./install.sh
 ```
 
+## New Linux Dev Server
+
+If you are starting from a root login, create the daily user first:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/rayli09/dotfiles/main/scripts/bootstrap-root.sh | bash -s ruize
+su - ruize
+```
+
+Then bootstrap the dev environment:
+
+```bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/rayli09/dotfiles/main/install.sh)"
+```
+
+Linux setup installs CLI/server tooling only. macOS setup installs Homebrew packages and GUI apps from `Brewfile.macos`.
+
+Update Ubuntu packages and user-space tooling:
+
+```bash
+scripts/update-ubuntu.sh
+```
+
 ## Daily Use
 
 Preview pending changes:
@@ -52,10 +75,11 @@ chezmoi add ~/.gitconfig
 
 ## 1Password
 
-Install and sign in:
+macOS installs the 1Password app and CLI through Homebrew. Ubuntu installs the `op` CLI through 1Password's apt repository.
+
+Sign in:
 
 ```bash
-brew install --cask 1password 1password-cli
 op signin
 ```
 
@@ -75,4 +99,3 @@ Values in `~/.config/chezmoi/chezmoi.toml` are not committed. Example:
   git_email = "you@example.com"
   work_email = "you@company.com"
 ```
-

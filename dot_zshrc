@@ -5,11 +5,18 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [[ -x /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
+elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
-alias ll="eza -la --git --group-directories-first"
+if command -v eza >/dev/null 2>&1; then
+  alias ll="eza -la --git --group-directories-first"
+else
+  alias ll="ls -lah"
+fi
+
 alias gs="git status --short"
 alias gco="git checkout"
 alias gcm="git commit"
@@ -27,7 +34,10 @@ if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
 if [[ -f "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"
 fi
-
