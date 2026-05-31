@@ -45,6 +45,38 @@ Update Ubuntu packages and user-space tooling:
 scripts/update-ubuntu.sh
 ```
 
+## New Windows Dev Box
+
+Run PowerShell as your normal user:
+
+```powershell
+irm https://raw.githubusercontent.com/rayli09/dotfiles/main/install.ps1 | iex
+```
+
+Windows setup uses `winget` for native apps and tools, then installs `wrangler@latest` with npm.
+
+Update Windows packages and user-space tooling:
+
+```powershell
+.\scripts\update-windows.ps1
+```
+
+## Runtime Tooling
+
+Node, Python, and Go are managed by mise through `~/.config/mise/config.toml` and default to latest. Bun and uv are installed directly from their official installers on Ubuntu, and through Homebrew/winget on desktop platforms. Wrangler is installed globally as `wrangler@latest` for convenience, while Cloudflare still recommends project-local Wrangler versions for team projects.
+
+Run a quick check:
+
+```bash
+scripts/smoke.sh
+```
+
+On Windows:
+
+```powershell
+.\scripts\smoke-windows.ps1
+```
+
 ## Daily Use
 
 Preview pending changes:

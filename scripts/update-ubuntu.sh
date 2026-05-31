@@ -35,6 +35,14 @@ update_mise() {
   if has mise; then
     mise self-update -y || true
     mise upgrade || true
+    mise install || true
+    eval "$(mise activate bash)"
+  fi
+}
+
+update_node_globals() {
+  if has npm; then
+    npm install -g wrangler@latest || true
   fi
 }
 
@@ -43,6 +51,7 @@ main() {
   update_bun
   update_uv
   update_mise
+  update_node_globals
 }
 
 main "$@"

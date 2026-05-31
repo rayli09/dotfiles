@@ -29,6 +29,11 @@ install_apt_packages() {
     gnupg \
     htop \
     jq \
+    libbz2-dev \
+    libffi-dev \
+    liblzma-dev \
+    libreadline-dev \
+    libsqlite3-dev \
     libssl-dev \
     pkg-config \
     python3 \
@@ -38,8 +43,11 @@ install_apt_packages() {
     shellcheck \
     shfmt \
     tmux \
+    tk-dev \
     unzip \
     wget \
+    xz-utils \
+    zlib1g-dev \
     zsh
 }
 
@@ -82,6 +90,22 @@ install_github_cli() {
 
   as_root apt-get update
   as_root apt-get install -y gh
+}
+
+install_cloudflared() {
+  if has cloudflared; then
+    return
+  fi
+
+  as_root install -d -m 0755 /usr/share/keyrings
+  curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg \
+    | as_root tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
+
+  echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main" \
+    | as_root tee /etc/apt/sources.list.d/cloudflared.list >/dev/null
+
+  as_root apt-get update
+  as_root apt-get install -y cloudflared
 }
 
 install_mise() {
@@ -134,6 +158,23 @@ enable_corepack() {
   fi
 }
 
+install_mise_tools() {
+  if ! has mise; then
+    return
+  fi
+
+  mise install
+  eval "$(mise activate bash)"
+}
+
+install_node_globals() {
+  if ! has npm; then
+    return
+  fi
+
+  npm install -g wrangler@latest
+}
+
 install_docker() {
   if has docker; then
     return
@@ -163,11 +204,14 @@ main() {
   install_apt_packages
   install_1password_cli
   install_github_cli
+  install_cloudflared
   install_mise
   install_symlinks
   install_bun
   install_uv
+  install_mise_tools
   enable_corepack
+  install_node_globals
   install_docker
   install_starship
   set_default_shell
