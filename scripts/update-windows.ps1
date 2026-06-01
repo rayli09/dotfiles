@@ -26,4 +26,10 @@ if (Get-Command npm -ErrorAction SilentlyContinue) {
   corepack enable
 }
 
+foreach ($cmd in @("code", "cursor")) {
+  if (Get-Command $cmd -ErrorAction SilentlyContinue) {
+    & $cmd --install-extension dracula-theme.theme-dracula --force
+  }
+}
+
 Write-Host "Windows update complete."

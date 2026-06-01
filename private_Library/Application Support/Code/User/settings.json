@@ -1,0 +1,6 @@
+{
+  "workbench.colorTheme": "Dracula Theme",
+  "editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": false,
+  "terminal.integrated.fontFamily": "Source Code Pro"
+}

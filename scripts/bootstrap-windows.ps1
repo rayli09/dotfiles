@@ -11,6 +11,73 @@ function Install-WinGetPackage {
   winget install --id $Id --exact --source winget --silent --accept-package-agreements --accept-source-agreements
 }
 
+function Add-ToPath {
+  param([string]$Path)
+
+  if ((Test-Path $Path) -and (($env:Path -split ";") -notcontains $Path)) {
+    $env:Path = "$Path;$env:Path"
+  }
+}
+
+function Install-SourceCodeProFont {
+  $fontName = "Source Code Pro"
+  $installed = Get-ChildItem "$env:WINDIR\Fonts", "$env:LOCALAPPDATA\Microsoft\Windows\Fonts" -ErrorAction SilentlyContinue |
+    Where-Object { $_.Name -like "*SourceCodePro*" -or $_.Name -like "*Source Code Pro*" } |
+    Select-Object -First 1
+
+  if ($installed) {
+    return
+  }
+
+  $release = Invoke-RestMethod "https://api.github.com/repos/adobe-fonts/source-code-pro/releases/latest"
+  $asset = $release.assets | Where-Object { $_.name -like "TTF*.zip" } | Select-Object -First 1
+  if (-not $asset) {
+    throw "Could not find latest Source Code Pro TTF release asset."
+  }
+
+  $tmp = Join-Path ([System.IO.Path]::GetTempPath()) "source-code-pro"
+  $zip = Join-Path $tmp $asset.name
+  Remove-Item -Recurse -Force $tmp -ErrorAction SilentlyContinue
+  New-Item -ItemType Directory -Force $tmp | Out-Null
+  Invoke-WebRequest -UseBasicParsing $asset.browser_download_url -OutFile $zip
+  Expand-Archive -Force $zip $tmp
+
+  $shell = New-Object -ComObject Shell.Application
+  $fonts = $shell.Namespace(0x14)
+  Get-ChildItem $tmp -Recurse -Include "*.ttf" | ForEach-Object {
+    $fonts.CopyHere($_.FullName)
+  }
+
+  Write-Host "Installed $fontName."
+}
+
+function Install-EditorExtensions {
+  foreach ($cmd in @("code", "cursor")) {
+    if (Has-Command $cmd) {
+      & $cmd --install-extension dracula-theme.theme-dracula --force
+    }
+  }
+}
+
+function Set-EditorSettings {
+  param([string]$SettingsPath)
+
+  $settingsDir = Split-Path $SettingsPath
+  New-Item -ItemType Directory -Force $settingsDir | Out-Null
+
+  if (Test-Path $SettingsPath) {
+    $settings = Get-Content -Raw $SettingsPath | ConvertFrom-Json
+  } else {
+    $settings = [pscustomobject]@{}
+  }
+
+  $settings | Add-Member -Force -NotePropertyName "workbench.colorTheme" -NotePropertyValue "Dracula Theme"
+  $settings | Add-Member -Force -NotePropertyName "editor.fontFamily" -NotePropertyValue "'Source Code Pro', Consolas, 'Courier New', monospace"
+  $settings | Add-Member -Force -NotePropertyName "editor.fontLigatures" -NotePropertyValue $false
+  $settings | Add-Member -Force -NotePropertyName "terminal.integrated.fontFamily" -NotePropertyValue "Source Code Pro"
+  $settings | ConvertTo-Json -Depth 10 | Set-Content $SettingsPath
+}
+
 $repo = "https://github.com/rayli09/dotfiles.git"
 
 if (-not (Has-Command winget)) {
@@ -71,6 +138,16 @@ $packages = @(
 foreach ($package in $packages) {
   Install-WinGetPackage $package
 }
+
+Add-ToPath "$env:LOCALAPPDATA\Programs\Microsoft VS Code\bin"
+Add-ToPath "$env:ProgramFiles\Microsoft VS Code\bin"
+Add-ToPath "$env:LOCALAPPDATA\Programs\Cursor\resources\app\bin"
+Add-ToPath "$env:ProgramFiles\Cursor\resources\app\bin"
+
+Install-SourceCodeProFont
+Install-EditorExtensions
+Set-EditorSettings "$env:APPDATA\Code\User\settings.json"
+Set-EditorSettings "$env:APPDATA\Cursor\User\settings.json"
 
 if (Has-Command mise) {
   mise install

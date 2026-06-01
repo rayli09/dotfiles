@@ -16,6 +16,14 @@ if command -v npm >/dev/null 2>&1; then
   npm install -g wrangler@latest
 fi
 
+if command -v code >/dev/null 2>&1; then
+  code --install-extension dracula-theme.theme-dracula --force
+fi
+
+if command -v cursor >/dev/null 2>&1; then
+  cursor --install-extension dracula-theme.theme-dracula --force || true
+fi
+
 if command -v fzf >/dev/null 2>&1; then
   "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc
 fi

@@ -1,0 +1,6 @@
+font-family = Source Code Pro
+font-size = 14
+theme = Dracula
+shell-integration = zsh
+window-padding-x = 4
+window-padding-y = 4
