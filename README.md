@@ -22,6 +22,38 @@ cd ~/dev/dotfiles
 ./install.sh
 ```
 
+Apply opinionated macOS preferences:
+
+```bash
+scripts/macos-defaults.sh
+```
+
+Verify managed macOS preferences on the current Mac:
+
+```bash
+scripts/assert-macos-preferences.sh
+```
+
+Preview those changes without writing preferences:
+
+```bash
+scripts/macos-defaults.sh --dry-run
+```
+
+Export selected current macOS preferences for review:
+
+```bash
+scripts/export-macos-preferences.sh
+```
+
+Export a raw plist for one domain into an ignored review directory:
+
+```bash
+scripts/export-macos-preferences.sh --raw-domain com.apple.universalaccess
+```
+
+Do not commit broad raw plists without reviewing them. macOS preference domains can include recent files, mounted volume names, local paths, account identifiers, and device-specific state.
+
 ## New Linux Dev Server
 
 If you are starting from a root login, create the daily user first:
@@ -70,6 +102,23 @@ Run a quick check:
 ```bash
 scripts/smoke.sh
 ```
+
+Run script validation locally:
+
+```bash
+scripts/check.sh
+```
+
+Or run the same validation in a Linux container:
+
+```bash
+docker build -f Containerfile.test -t dotfiles-check .
+docker run --rm dotfiles-check
+```
+
+The container check validates shell syntax, shellcheck linting, and the macOS defaults dry-run path. It cannot apply or verify real macOS `defaults` behavior because that requires macOS.
+
+Real macOS preference behavior is validated by `scripts/assert-macos-preferences.sh` on a Mac and by the macOS GitHub Actions job in `.github/workflows/check.yml`.
 
 On Windows:
 

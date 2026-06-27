@@ -7,4 +7,4 @@
 *.mobileprovision
 id_*
 !private_dot_ssh/config.tmpl
-
+.macos-preferences/

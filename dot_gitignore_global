@@ -6,4 +6,4 @@ node_modules
 .turbo
 .vercel
 .wrangler
-
+.macos-preferences
