@@ -96,7 +96,7 @@ if (-not (Test-Path "$HOME\.config\chezmoi\chezmoi.toml")) {
   @"
 [data]
   git_name = "Ruize Li"
-  git_email = "rl3250@columbia.edu"
+  git_email = "you@example.com"
   work_email = ""
 "@ | Set-Content "$HOME\.config\chezmoi\chezmoi.toml"
 }

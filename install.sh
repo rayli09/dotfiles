@@ -99,7 +99,7 @@ ensure_chezmoi_config() {
   cat > "$config" <<EOF
 [data]
   git_name = "Ruize Li"
-  git_email = "rl3250@columbia.edu"
+  git_email = "you@example.com"
   work_email = ""
 EOF
 }
