@@ -6,11 +6,14 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     bash \
     ca-certificates \
+    curl \
     git \
     shellcheck \
   && rm -rf /var/lib/apt/lists/*
 
+RUN sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b /usr/local/bin
+
 WORKDIR /work
 COPY . /work
 
-CMD ["bash", "scripts/check.sh"]
+CMD ["bash", "-c", "bash scripts/check.sh && bash scripts/test-chezmoi.sh"]

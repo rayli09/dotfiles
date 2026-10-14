@@ -107,7 +107,14 @@ EOF
 apply_dotfiles() {
   log "Applying dotfiles"
 
-  if chezmoi source-path >/dev/null 2>&1; then
+  local source_path remote
+  source_path="$(chezmoi source-path)"
+  if [[ -d "$source_path/.git" ]]; then
+    remote="$(git -C "$source_path" remote get-url origin)"
+    case "$remote" in
+      https://github.com/rayli09/dotfiles|https://github.com/rayli09/dotfiles.git|git@github.com:rayli09/dotfiles.git) ;;
+      *) echo "Existing chezmoi source belongs to another repo: $source_path" >&2; exit 1 ;;
+    esac
     chezmoi update --apply
   else
     chezmoi init --apply "$REPO"

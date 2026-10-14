@@ -48,6 +48,7 @@ install_apt_packages() {
     wget \
     xz-utils \
     zlib1g-dev \
+    zoxide \
     zsh
 }
 

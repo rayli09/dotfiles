@@ -15,9 +15,13 @@
 	enabled = true
 
 [core]
-	editor = code --wait
+{{ if eq .chezmoi.os "darwin" }}	editor = code --wait
+{{ else }}	editor = vi
+{{ end }}
 	excludesfile = ~/.gitignore_global
 
+{{ if eq .chezmoi.os "darwin" }}
 [credential]
 	helper = osxkeychain
+{{ end }}
 

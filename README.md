@@ -1,182 +1,56 @@
 # dotfiles
 
-Personal workstation setup managed with [chezmoi](https://www.chezmoi.io/).
+My source of truth for a quick dev setup on **macOS and Ubuntu/Debian Linux**:
+shell, Git, runtimes, editor settings, and shared coding-agent skills.
 
-This repo is designed to be safe as a public GitHub repo:
+## Install
 
-- reusable shell, Git, Homebrew, and app setup lives here
-- secrets stay in 1Password or local ignored files
-- machine-specific values go in chezmoi's local config
-
-## New Mac
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rayli09/dotfiles/main/install.sh)"
-```
-
-Or clone first:
-
-```bash
-git clone https://github.com/rayli09/dotfiles.git ~/dev/dotfiles
-cd ~/dev/dotfiles
-./install.sh
-```
-
-Apply opinionated macOS preferences:
-
-```bash
-scripts/macos-defaults.sh
-```
-
-Verify managed macOS preferences on the current Mac:
-
-```bash
-scripts/assert-macos-preferences.sh
-```
-
-Preview those changes without writing preferences:
-
-```bash
-scripts/macos-defaults.sh --dry-run
-```
-
-Export selected current macOS preferences for review:
-
-```bash
-scripts/export-macos-preferences.sh
-```
-
-Export a raw plist for one domain into an ignored review directory:
-
-```bash
-scripts/export-macos-preferences.sh --raw-domain com.apple.universalaccess
-```
-
-Do not commit broad raw plists without reviewing them. macOS preference domains can include recent files, mounted volume names, local paths, account identifiers, and device-specific state.
-
-## New Linux Dev Server
-
-If you are starting from a root login, create the daily user first:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/rayli09/dotfiles/main/scripts/bootstrap-root.sh | bash -s ruize
-su - ruize
-```
-
-Then bootstrap the dev environment:
+Run as your normal user (Linux needs `sudo`). Install `curl` first if missing.
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/rayli09/dotfiles/main/install.sh)"
+exec zsh
 ```
 
-Linux setup installs CLI/server tooling only. macOS setup installs Homebrew packages and GUI apps from `Brewfile.macos`.
+macOS installs Homebrew tools and desktop apps. Linux installs CLI tools.
+Both install Node, Python, Go, Bun, uv, GitHub CLI, 1Password CLI, and the
+shared setup for Codex, Claude Code, Muse Code, and OpenCode. Agent apps/CLIs
+and account sign-ins are separate; existing credentials are not copied.
 
-Update Ubuntu packages and user-space tooling:
+Set your Git identity once:
 
 ```bash
-scripts/update-ubuntu.sh
+chezmoi edit-config  # set data.git_name and data.git_email
+chezmoi apply
+gh auth login
 ```
 
-## New Windows Dev Box
-
-Run PowerShell as your normal user:
-
-```powershell
-irm https://raw.githubusercontent.com/rayli09/dotfiles/main/install.ps1 | iex
-```
-
-Windows setup uses `winget` for native apps and tools, then installs `wrangler@latest` with npm.
-
-Update Windows packages and user-space tooling:
-
-```powershell
-.\scripts\update-windows.ps1
-```
-
-## Runtime Tooling
-
-Node, Python, and Go are managed by mise through `~/.config/mise/config.toml` and default to latest. Bun and uv are installed directly from their official installers on Ubuntu, and through Homebrew/winget on desktop platforms. Wrangler is installed globally as `wrangler@latest` for convenience, while Cloudflare still recommends project-local Wrangler versions for team projects.
-
-Run a quick check:
+## Update
 
 ```bash
-scripts/smoke.sh
+chezmoi update
 ```
 
-Run script validation locally:
+This pulls and applies dotfiles and agent skills. To update installed packages:
 
 ```bash
-scripts/check.sh
+bash "$(chezmoi source-path)/scripts/update-macos.sh"   # macOS
+bash "$(chezmoi source-path)/scripts/update-ubuntu.sh"  # Ubuntu/Debian
 ```
 
-Or run the same validation in a Linux container:
+## Change something
 
 ```bash
-docker build -f Containerfile.test -t dotfiles-check .
-docker run --rm dotfiles-check
-```
-
-The container check validates shell syntax, shellcheck linting, and the macOS defaults dry-run path. It cannot apply or verify real macOS `defaults` behavior because that requires macOS.
-
-Real macOS preference behavior is validated by `scripts/assert-macos-preferences.sh` on a Mac and by the macOS GitHub Actions job in `.github/workflows/check.yml`.
-
-On Windows:
-
-```powershell
-.\scripts\smoke-windows.ps1
-```
-
-## Daily Use
-
-Preview pending changes:
-
-```bash
+chezmoi cd
+# Edit dot_zshrc, agents/AGENTS.md, agents/skills/, or the package lists.
 chezmoi diff
-```
-
-Apply changes:
-
-```bash
 chezmoi apply
+git add -A
+git commit -m "Update dev setup"
+git push
 ```
 
-Edit a managed file:
+Keep secrets in 1Password or local ignored files. Keep project-specific skills
+in that project. Restart coding agents after updating their setup.
 
-```bash
-chezmoi edit ~/.zshrc
-chezmoi apply
-```
-
-Add an existing file:
-
-```bash
-chezmoi add ~/.zshrc
-chezmoi add ~/.gitconfig
-```
-
-## 1Password
-
-macOS installs the 1Password app and CLI through Homebrew. Ubuntu installs the `op` CLI through 1Password's apt repository.
-
-Sign in:
-
-```bash
-op signin
-```
-
-Templates can read from 1Password with `onepasswordRead`. Keep item paths stable, for example:
-
-```gotemplate
-{{ onepasswordRead "op://Private/GitHub/email" }}
-```
-
-## Local Machine Config
-
-Values in `~/.config/chezmoi/chezmoi.toml` are not committed. Example:
-
-```toml
-[data]
-  git_name = "Ruize Li"
-  git_email = "you@example.com"
-  work_email = "you@company.com"
-```
+[Setup details](docs/setup.md) · [Shared agent setup](docs/agents.md)

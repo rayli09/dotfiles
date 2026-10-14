@@ -15,6 +15,7 @@ scripts=(
   scripts/export-macos-preferences.sh
   scripts/macos-defaults.sh
   scripts/smoke.sh
+  scripts/test-chezmoi.sh
   scripts/update-macos.sh
   scripts/update-ubuntu.sh
 )

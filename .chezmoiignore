@@ -1,0 +1,21 @@
+README.md
+AGENTS.md
+Brewfile*
+Containerfile.test
+install.sh
+install.ps1
+scripts/**
+packages/**
+docs/**
+agents/**
+{{ if ne .chezmoi.os "darwin" }}
+Library/**
+{{ end }}
+{{ if eq .chezmoi.os "windows" }}
+.zshrc
+.agents/**
+.claude/skills
+.claude/CLAUDE.md
+.codex/AGENTS.md
+.config/opencode/AGENTS.md
+{{ end }}
