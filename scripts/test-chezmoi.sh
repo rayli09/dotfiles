@@ -7,7 +7,9 @@ trap 'rm -rf "$test_root"' EXIT
 
 for os in darwin linux; do
   destination="$test_root/$os"
-  mkdir -p "$destination"
+  mkdir -p "$destination/.agents" "$test_root/legacy-skills"
+  # Older installs linked the entire collection into the dotfiles checkout.
+  ln -s "$test_root/legacy-skills" "$destination/.agents/skills"
   config="$test_root/$os.toml"
   cat > "$config" <<'CONFIG'
 [data]
@@ -22,8 +24,15 @@ CONFIG
   "${cm[@]}" apply --force
   "${cm[@]}" verify
 
-  [[ -L "$destination/.agents/skills" ]]
-  [[ "$(readlink "$destination/.agents/skills")" == "$source_path/agents/skills" ]]
+  [[ -d "$destination/.agents/skills" && ! -L "$destination/.agents/skills" ]]
+  [[ -L "$destination/.agents/skills/public-market-signal-research" ]]
+  [[ -f "$destination/.agents/skills/cloudflare/SKILL.md" ]]
+  count=0
+  for manifest in "$destination"/.agents/skills/*/SKILL.md; do
+    [[ -f "$manifest" ]]
+    count=$((count + 1))
+  done
+  [[ "$count" -eq 25 ]]
   cmp "$destination/.agents/AGENTS.md" "$source_path/agents/AGENTS.md"
   for path in .claude/CLAUDE.md .codex/AGENTS.md .config/opencode/AGENTS.md; do
     cmp "$destination/$path" "$source_path/agents/AGENTS.md"

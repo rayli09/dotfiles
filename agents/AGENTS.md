@@ -22,7 +22,7 @@ Treat this stack as a living preference rather than a frozen requirement. It may
 
 ## Personal Feature Development Skills
 
-- Keep personal global skills in `~/.agents/skills` as the single user-maintained collection. Install new personal skills there; keep project-owned skills in their repositories and use a symlink in the global collection when needed across projects. Leave Codex-managed system skills and plugin installations in their managed locations. Check existing capabilities before adding overlapping skills.
+- Manage personal skills through the dotfiles repo: declare upstream packages in `.chezmoiexternal.toml` and keep personal/customized packages in `agents/personal-skills/`. Apply them to the shared runtime collection at `~/.agents/skills` with chezmoi. Keep project-owned skills in their repositories. Leave managed system skills and plugins in their managed locations; check existing capabilities before adding overlapping skills.
 - Inspect the available skills before substantial feature work. When a specialized workflow is missing, use `find-skills` and [skills.sh](https://skills.sh/) to discover relevant additions; recommend them before installing.
 - Treat [emilkowalski/skills](https://github.com/emilkowalski/skills) as a preferred collection for design-engineering work, including UI quality, animation review, motion opportunities, prototyping, and UI-library selection.
 

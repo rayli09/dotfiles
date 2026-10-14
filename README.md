@@ -1,7 +1,8 @@
 # dotfiles
 
 My source of truth for a quick dev setup on **macOS and Ubuntu/Debian Linux**:
-shell, Git, runtimes, editor settings, and shared coding-agent skills.
+shell, Git, runtimes, editor settings, and shared coding-agent skills. Upstream skills are pinned and fetched during setup;
+only personal skills live in this repo.
 
 ## Install
 
@@ -42,7 +43,7 @@ bash "$(chezmoi source-path)/scripts/update-ubuntu.sh"  # Ubuntu/Debian
 
 ```bash
 chezmoi cd
-# Edit dot_zshrc, agents/AGENTS.md, agents/skills/, or the package lists.
+# Edit dot_zshrc, agents/AGENTS.md, agents/personal-skills/, or the package lists.
 chezmoi diff
 chezmoi apply
 git add -A

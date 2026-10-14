@@ -1,29 +1,45 @@
 # Shared agent setup
 
-This repository is the source of truth. Edit `agents/AGENTS.md` for personal
-project defaults and general engineering guidance, and
-`agents/skills/<name>/` for reusable skills. The 25 skill packages are
-vendored, with available upstream source metadata in `agents/sources.json`.
+Dotfiles owns the selection and versions of skills, plus your personal
+instructions and customizations. Third-party packages are not vendored.
 
-chezmoi links `~/.agents/skills` and `~/.agents/AGENTS.md` directly into its
-checkout, so there are no independently maintained copies. Claude's personal
-skill directory links to the same collection. Codex, Muse, and OpenCode discover
-the shared collection directly. Native personal-instruction entrypoints for
-Codex, Claude, and OpenCode link to the shared defaults; Muse can import the
-Claude/Codex personal rules through its built-in compatibility support.
+- Edit `agents/AGENTS.md` for shared personal instructions.
+- Edit `agents/personal-skills/` for the three local/customized packages.
+- Edit `.chezmoiexternal.toml` to add or update upstream skills. Each entry pins
+  a full commit SHA, the selected archive path, and its SHA-256 checksum.
 
-Repository-owned skills stay in repositories. Credentials, MCP headers, model
-choices, provider settings, sessions, plugins, and usage ledgers are local.
-This repo does not sync complete agent configuration files.
+`chezmoi apply` downloads the 22 upstream skills into `~/.agents/skills`. It
+verifies archive checksums and caches downloads. The same directory contains
+links to personal skills in the dotfiles checkout. `~/.claude/skills` links to
+this collection; Codex, Muse, and OpenCode discover it directly. Their native
+personal-instruction entrypoints share `~/.agents/AGENTS.md`.
 
-A skill's directory must match its frontmatter `name`, and its `description`
-should be short and specific. Tool-specific scripts may need their own CLI
-dependencies; installing a skill does not provision its external services.
+`chezmoi update` pulls the manifest and applies it. A skill changes only when
+its pinned revision changes; repeating setup keeps the same versions.
+
+Keep project-owned skills in their repositories. Credentials, MCP headers,
+models, providers, sessions, plugins, and usage ledgers remain local.
+
+## Update an upstream skill
+
+Select and review an upstream commit. Update that skill's archive URL and
+checksum in `.chezmoiexternal.toml`; keep the archive path correct. Then run:
+
+```bash
+bash scripts/test-chezmoi.sh
+chezmoi diff
+chezmoi apply
+```
+
+`exact = true` applies within an individual upstream skill directory, so files
+removed upstream are also removed there. Put your changes in a personal variant
+rather than editing downloaded packages.
 
 Check discovery with `muse skills list --source user --json` or
-`opencode debug skill`. Validate a package with `muse skills validate <path>`.
+`opencode debug skill`. External services/CLIs required by a skill are separate.
 
-Sources: [Codex](https://learn.chatgpt.com/docs/build-skills),
+Sources: [chezmoi externals](https://www.chezmoi.io/reference/special-files/chezmoiexternal-format/),
+[Codex](https://learn.chatgpt.com/docs/build-skills),
 [Claude](https://code.claude.com/docs/en/skills),
 [Muse](https://meta-models.github.io/muse-code-sdk/next/guides/extend/skills/),
 [OpenCode](https://opencode.ai/docs/skills/).
