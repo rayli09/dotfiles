@@ -25,13 +25,10 @@ brew "tokei"
 brew "tree"
 brew "zoxide"
 
-# Runtimes / package managers
+# Runtimes / package managers (Node, Python, and Go are managed by mise)
 brew "bun"
 brew "deno"
-brew "go"
-brew "node"
 brew "pnpm"
-brew "python"
 brew "rustup"
 brew "uv"
 
@@ -44,7 +41,6 @@ brew "mas"
 brew "openssl@3"
 brew "pkg-config"
 brew "watchman"
-brew "wrangler"
 
 # HTTP / network
 brew "curl"

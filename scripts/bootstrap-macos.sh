@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-brew bundle --file="$(chezmoi source-path)/Brewfile.macos"
+source_path="$(chezmoi source-path)"
+
+brew bundle --file="$source_path/Brewfile.macos"
 
 if command -v mise >/dev/null 2>&1; then
   mise install
@@ -16,13 +18,14 @@ if command -v npm >/dev/null 2>&1; then
   npm install -g wrangler@latest
 fi
 
-if command -v code >/dev/null 2>&1; then
-  code --install-extension dracula-theme.theme-dracula --force
-fi
-
-if command -v cursor >/dev/null 2>&1; then
-  cursor --install-extension dracula-theme.theme-dracula --force || true
-fi
+for editor in code cursor; do
+  if command -v "$editor" >/dev/null 2>&1; then
+    while IFS= read -r extension || [[ -n "$extension" ]]; do
+      [[ -z "$extension" || "$extension" == \#* ]] && continue
+      "$editor" --install-extension "$extension" --force
+    done < "$source_path/private_dot_config/vscode/extensions.txt"
+  fi
+done
 
 if command -v fzf >/dev/null 2>&1; then
   "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc

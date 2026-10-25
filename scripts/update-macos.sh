@@ -18,24 +18,17 @@ if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate bash)"
 fi
 
-if command -v bun >/dev/null 2>&1; then
-  brew upgrade bun || bun upgrade || true
-fi
-
-if command -v uv >/dev/null 2>&1; then
-  brew upgrade uv || uv self update || true
-fi
-
 if command -v npm >/dev/null 2>&1; then
   npm install -g wrangler@latest || true
 fi
 
-if command -v code >/dev/null 2>&1; then
-  code --install-extension dracula-theme.theme-dracula --force || true
-fi
-
-if command -v cursor >/dev/null 2>&1; then
-  cursor --install-extension dracula-theme.theme-dracula --force || true
-fi
+for editor in code cursor; do
+  if command -v "$editor" >/dev/null 2>&1; then
+    while IFS= read -r extension || [[ -n "$extension" ]]; do
+      [[ -z "$extension" || "$extension" == \#* ]] && continue
+      "$editor" --install-extension "$extension" --force
+    done < "$source_path/private_dot_config/vscode/extensions.txt"
+  fi
+done
 
 echo "macOS update complete."

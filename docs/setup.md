@@ -17,6 +17,12 @@ live in `Brewfile.macos` and `packages/ubuntu.sh`. Sign in to 1Password with
 `op signin`. Local Git identity and machine values live in
 `~/.config/chezmoi/chezmoi.toml`; these are not committed.
 
+On macOS, Homebrew owns system tools, Bun, uv, and desktop apps; mise owns
+Node, Python, and Go. Wrangler is installed through npm after mise activation.
+Homebrew may also install runtimes as dependencies of other formulae.
+The shared editor extension list is `private_dot_config/vscode/extensions.txt`;
+macOS and Windows bootstrap/update scripts read it for VS Code and Cursor.
+
 ## Optional macOS preferences
 
 From the checkout:

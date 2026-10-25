@@ -28,7 +28,13 @@ if (Get-Command npm -ErrorAction SilentlyContinue) {
 
 foreach ($cmd in @("code", "cursor")) {
   if (Get-Command $cmd -ErrorAction SilentlyContinue) {
-    & $cmd --install-extension dracula-theme.theme-dracula --force
+    Get-Content (Join-Path (chezmoi source-path) "private_dot_config/vscode/extensions.txt") | ForEach-Object {
+      $extension = $_.Trim()
+      if ($extension -and -not $extension.StartsWith("#")) {
+        & $cmd --install-extension $extension --force
+        if ($LASTEXITCODE -ne 0) { throw "Failed to install $extension in $cmd" }
+      }
+    }
   }
 }
 

@@ -54,7 +54,13 @@ function Install-SourceCodeProFont {
 function Install-EditorExtensions {
   foreach ($cmd in @("code", "cursor")) {
     if (Has-Command $cmd) {
-      & $cmd --install-extension dracula-theme.theme-dracula --force
+      Get-Content (Join-Path (chezmoi source-path) "private_dot_config/vscode/extensions.txt") | ForEach-Object {
+        $extension = $_.Trim()
+        if ($extension -and -not $extension.StartsWith("#")) {
+          & $cmd --install-extension $extension --force
+          if ($LASTEXITCODE -ne 0) { throw "Failed to install $extension in $cmd" }
+        }
+      }
     }
   }
 }
