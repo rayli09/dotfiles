@@ -16,3 +16,6 @@ project-owned skills remain outside this public repository.
   or template changes. Both use disposable destinations; never apply the full
   configuration to the developer's home as a test.
 - Preserve local uncommitted edits; validate changes before publishing.
+- Whenever you change this repository, run the relevant checks, commit your
+  changes, and push to the remote before finishing the task. Include only the
+  task's changes in the commit; preserve unrelated local edits.
