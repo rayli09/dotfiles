@@ -6,7 +6,6 @@ required=(
   git
   gh
   op
-  mise
   node
   npm
   bun

@@ -15,7 +15,6 @@ brew "fd"
 brew "fzf"
 brew "jq"
 brew "lazygit"
-brew "mise"
 brew "ripgrep"
 brew "shfmt"
 brew "shellcheck"
@@ -25,12 +24,9 @@ brew "tokei"
 brew "tree"
 brew "zoxide"
 
-# Runtimes / package managers (Node, Python, and Go are managed by mise)
-brew "bun"
+# Additional runtimes (shared tools are owned by scripts/install-tools.sh)
 brew "deno"
-brew "pnpm"
 brew "rustup"
-brew "uv"
 
 # Cloud / containers / build tooling
 brew "cloudflared"

@@ -4,7 +4,7 @@ set -euo pipefail
 source_path="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 test_root="$(mktemp -d)"
 trap 'rm -rf "$test_root"' EXIT
-mkdir -p "$test_root/bin" "$test_root/source/private_dot_config/vscode" "$test_root/opt/fzf"
+mkdir -p "$test_root/bin" "$test_root/source/private_dot_config/vscode" "$test_root/opt/fzf" "$test_root/source/scripts"
 printf '# Comment\n\ndracula-theme.theme-dracula\nexample.second' > "$test_root/source/private_dot_config/vscode/extensions.txt"
 
 cat > "$test_root/bin/stub" <<'STUB'
@@ -20,6 +20,15 @@ case "$name" in
   sudo) "$@" ;;
 esac
 STUB
+cat > "$test_root/source/scripts/install-tools.sh" <<'INSTALL'
+#!/bin/bash
+printf 'shared install\n' >> "$TEST_LOG"
+if [[ "${TEST_FAIL:-}" == 'shared install' ]]; then exit 42; fi
+INSTALL
+cat > "$test_root/source/scripts/tools-env.sh" <<'ACTIVATE'
+printf 'shared activate\n' >> "$TEST_LOG"
+ACTIVATE
+ln -s /bin/bash "$test_root/bin/bash"
 chmod +x "$test_root/bin/stub"
 for command in chezmoi brew mise npm code cursor corepack mas fzf sudo apt-get; do
   ln -s stub "$test_root/bin/$command"
@@ -36,25 +45,20 @@ run_script() {
 for script in bootstrap-macos.sh update-macos.sh update-ubuntu.sh; do
   : > "$test_root/calls"
   run_script "$script"
-  grep -q '^mise install$' "$test_root/calls"
+  grep -q '^shared install$' "$test_root/calls"
   grep -q '^npm install -g wrangler@latest$' "$test_root/calls"
-  if grep -Eq '^(brew upgrade (bun|uv)|bun upgrade|uv self update|mise self-update)' "$test_root/calls" && [[ "$script" != update-ubuntu.sh ]]; then
-    echo "Duplicate package ownership in $script" >&2
+  if grep -Eq '^(mise |bun upgrade|uv self update|brew upgrade (bun|uv))' "$test_root/calls"; then
+    echo "Shared tool ownership bypassed in $script" >&2
     exit 1
   fi
-  if [[ "$script" == update-ubuntu.sh ]]; then
-    if grep -q '^mise self-update' "$test_root/calls"; then
-      echo 'mise must be updated by apt' >&2
-      exit 1
-    fi
-  else
+  if [[ "$script" != update-ubuntu.sh ]]; then
     for editor in code cursor; do
       printf '%s --install-extension dracula-theme.theme-dracula --force\n%s --install-extension example.second --force\n' "$editor" "$editor" > "$test_root/expected"
       grep "^$editor " "$test_root/calls" > "$test_root/actual"
       diff -u "$test_root/expected" "$test_root/actual"
     done
   fi
-  for failure in 'mise install' 'npm install'; do
+  for failure in 'shared install' 'npm install'; do
     if run_script "$script" "$failure"; then
       echo "$script hid failure: $failure" >&2
       exit 1

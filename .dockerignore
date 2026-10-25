@@ -10,3 +10,4 @@ outputs
 *.p12
 *.mobileprovision
 id_*
+.tools

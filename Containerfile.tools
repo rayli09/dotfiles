@@ -1,0 +1,11 @@
+ARG BASE_IMAGE=ubuntu:24.04
+FROM ${BASE_IMAGE}
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends ca-certificates curl git libatomic1 tar xz-utils \
+  && useradd --create-home tester \
+  && rm -rf /var/lib/apt/lists/*
+COPY --chown=tester:tester . /source
+USER tester
+ENV HOME=/home/tester USER=tester
+WORKDIR /source
+CMD ["bash", "scripts/test-tools.sh"]

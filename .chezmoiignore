@@ -5,6 +5,7 @@ Containerfile.*
 .dockerignore
 install.sh
 install.ps1
+toolchain.env
 scripts/**
 packages/**
 docs/**
@@ -20,3 +21,4 @@ Library/**
 .codex/AGENTS.md
 .config/opencode/AGENTS.md
 {{ end }}
+.tools/**

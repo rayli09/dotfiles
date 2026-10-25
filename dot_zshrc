@@ -14,8 +14,9 @@ elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+if [[ -f "${DOTFILES_TOOLS_PREFIX:-$HOME/.local/share/dotfiles-tools}/env.sh" ]]; then
+  source "${DOTFILES_TOOLS_PREFIX:-$HOME/.local/share/dotfiles-tools}/env.sh"
+fi
 
 if command -v eza >/dev/null 2>&1; then
   alias ll="eza -la --git --group-directories-first"
@@ -38,10 +39,6 @@ fi
 
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
-fi
-
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate zsh)"
 fi
 
 if [[ -f "$HOME/.zshrc.local" ]]; then

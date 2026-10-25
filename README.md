@@ -28,4 +28,4 @@ chezmoi diff
 chezmoi apply
 ```
 
-[Setup, package updates, and testing](docs/setup.md) · [Agent setup](docs/agents.md)
+[Sandbox tools](docs/tools.md) · [Setup, package updates, and testing](docs/setup.md) · [Agent setup](docs/agents.md)

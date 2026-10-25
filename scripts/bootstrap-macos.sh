@@ -5,14 +5,8 @@ source_path="$(chezmoi source-path)"
 
 brew bundle --file="$source_path/Brewfile.macos"
 
-if command -v mise >/dev/null 2>&1; then
-  mise install
-  eval "$(mise activate bash)"
-fi
-
-if command -v corepack >/dev/null 2>&1; then
-  corepack enable
-fi
+bash "$source_path/scripts/install-tools.sh"
+source "$source_path/scripts/tools-env.sh"
 
 if command -v npm >/dev/null 2>&1; then
   npm install -g wrangler@latest

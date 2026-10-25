@@ -15,6 +15,10 @@ scripts=(
   scripts/export-macos-preferences.sh
   scripts/macos-defaults.sh
   scripts/smoke.sh
+  scripts/install-tools.sh
+  scripts/tools-env.sh
+  scripts/check-tools.sh
+  scripts/test-tools.sh
   scripts/test-chezmoi.sh
   scripts/test-linux-install.sh
   scripts/test-scripts.sh
@@ -32,7 +36,7 @@ if ! command -v shellcheck >/dev/null 2>&1; then
   echo "Missing shellcheck. Install it with: brew install shellcheck" >&2
   exit 127
 fi
-shellcheck "${scripts[@]}"
+shellcheck -x "${scripts[@]}"
 
 echo "Checking macOS defaults dry-run"
 dry_run="$(mktemp)"

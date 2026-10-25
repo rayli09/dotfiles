@@ -12,11 +12,8 @@ if command -v mas >/dev/null 2>&1; then
   mas upgrade
 fi
 
-if command -v mise >/dev/null 2>&1; then
-  mise upgrade
-  mise install
-  eval "$(mise activate bash)"
-fi
+bash "$source_path/scripts/install-tools.sh"
+source "$source_path/scripts/tools-env.sh"
 
 if command -v npm >/dev/null 2>&1; then
   npm install -g wrangler@latest

@@ -29,20 +29,23 @@ The default chezmoi checkout is `~/.local/share/chezmoi`. Use `chezmoi cd` to
 edit the actual source. A separate Git clone is useful for development, but
 running its installer still uses the configured chezmoi checkout.
 
-Runtime versions live in `private_dot_config/mise/config.toml`; package lists
-live in `Brewfile.macos` and `packages/ubuntu.sh`. Local Git identity and machine values live in
-`~/.config/chezmoi/chezmoi.toml`; these are not committed.
+Shared runtime and quality-tool pins live in `toolchain.env`; the portable
+installer is described in [tools](tools.md). System package lists live in
+`Brewfile.macos` and `packages/ubuntu.sh`. Local Git identity and machine values
+live in `~/.config/chezmoi/chezmoi.toml`; these are not committed.
 
-On macOS, Homebrew owns system tools, Bun, uv, and desktop apps; mise owns
-Node, Python, and Go. Wrangler is installed through npm after mise activation.
-Homebrew may also install runtimes as dependencies of other formulae.
+Homebrew/apt own system tools and desktop apps. The shared tools installer owns
+Node/npm, Bun, pnpm, Python/uv, Go, and quality tools under
+`~/.local/share/dotfiles-tools`. Zsh activates that installation when present.
+Wrangler is installed through the shared npm. System package managers may
+also install runtimes as dependencies of other packages.
 The shared editor extension list is `private_dot_config/vscode/extensions.txt`;
 macOS and Windows bootstrap/update scripts read it for VS Code and Cursor.
 
 ## Updating packages
 
 `chezmoi update` pulls and applies dotfiles and agent skills. Update installed
-packages separately:
+packages and reapply the shared tool pins separately:
 
 ```bash
 bash "$(chezmoi source-path)/scripts/update-macos.sh"   # macOS

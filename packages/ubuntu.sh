@@ -38,7 +38,6 @@ install_apt_packages() {
     libreadline-dev \
     libsqlite3-dev \
     libssl-dev \
-    mise \
     pkg-config \
     python3 \
     python3-pip \
@@ -104,19 +103,6 @@ configure_cloudflared_repository() {
     | as_root tee /etc/apt/sources.list.d/cloudflared.list >/dev/null
 }
 
-configure_mise_repository() {
-  if [[ -f /etc/apt/sources.list.d/mise.list ]]; then
-    return
-  fi
-
-  as_root install -d -m 0755 /etc/apt/keyrings
-  curl -fSs https://mise.en.dev/gpg-key.pub \
-    | as_root tee /etc/apt/keyrings/mise-archive-keyring.asc >/dev/null
-
-  echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.asc] https://mise.en.dev/deb stable main" \
-    | as_root tee /etc/apt/sources.list.d/mise.list >/dev/null
-}
-
 install_symlinks() {
   mkdir -p "$HOME/.local/bin"
 
@@ -127,37 +113,6 @@ install_symlinks() {
   if has batcat && ! has bat; then
     ln -sf "$(command -v batcat)" "$HOME/.local/bin/bat"
   fi
-}
-
-install_bun() {
-  if has bun; then
-    return
-  fi
-
-  curl -fsSL https://bun.sh/install | bash
-}
-
-install_uv() {
-  if has uv; then
-    return
-  fi
-
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-}
-
-enable_corepack() {
-  if has corepack; then
-    corepack enable
-  fi
-}
-
-install_mise_tools() {
-  if ! has mise; then
-    return
-  fi
-
-  mise install
-  eval "$(mise activate bash)"
 }
 
 install_node_globals() {
@@ -197,13 +152,10 @@ main() {
   configure_1password_cli_repository
   configure_github_cli_repository
   configure_cloudflared_repository
-  configure_mise_repository
   install_apt_packages
   install_symlinks
-  install_bun
-  install_uv
-  install_mise_tools
-  enable_corepack
+  bash "$(chezmoi source-path)/scripts/install-tools.sh"
+  source "$(chezmoi source-path)/scripts/tools-env.sh"
   install_node_globals
   install_docker
   install_starship

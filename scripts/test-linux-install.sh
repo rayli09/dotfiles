@@ -40,8 +40,8 @@ zsh -lic '
   bash "$(chezmoi source-path)/scripts/smoke.sh"
   for tool in node python go; do
     resolved="$(command -v "$tool")"
-    [[ "$resolved" == "$HOME/.local/share/mise/installs/"* ]]
-    printf "mise owns %s: %s\n" "$tool" "$resolved"
+    [[ "$resolved" == "$HOME/.local/share/dotfiles-tools/"* ]]
+    printf "shared tools own %s: %s\n" "$tool" "$resolved"
   done
   node --version
   python --version

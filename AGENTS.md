@@ -6,7 +6,10 @@ agent defaults and skills. Credentials, sessions, provider settings, and
 project-owned skills remain outside this public repository.
 
 - `install.sh` installs chezmoi, applies dotfiles, and runs the OS bootstrap.
-- `Brewfile.macos` and `packages/ubuntu.sh` own platform package lists.
+- `toolchain.env` and `scripts/{install-tools,tools-env,check-tools}.sh` own the
+  portable shared toolchain. Read `docs/tools.md` for sandbox use and updates.
+- `Brewfile.macos` and `packages/ubuntu.sh` own system package lists; shared
+  runtimes are installed through the portable tools entrypoint.
 - `agents/` owns shared defaults and personal/customized skills only.
 - `.chezmoiexternal.toml` owns upstream skill paths, immutable revisions, and
   archive checksums. Preserve contents when changing deployment; avoid vendoring.

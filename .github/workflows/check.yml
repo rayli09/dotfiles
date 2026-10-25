@@ -65,3 +65,15 @@ jobs:
             [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
             if ($errors.Count) { throw ($errors | Out-String) }
           }
+
+  portable-tools:
+    name: Portable tools (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-26]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test unprivileged tools, repeat setup, and fresh-shell activation
+        run: bash scripts/test-tools.sh
