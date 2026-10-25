@@ -97,8 +97,8 @@ ensure_chezmoi_config() {
 EOF
 }
 
-apply_dotfiles() {
-  log "Applying dotfiles"
+prepare_dotfiles() {
+  log "Preparing dotfiles source"
 
   local source_path remote
   source_path="$(chezmoi source-path)"
@@ -109,9 +109,9 @@ apply_dotfiles() {
       https://github.com/rayli09/dotfiles|https://github.com/rayli09/dotfiles.git|git@github.com:rayli09/dotfiles.git) ;;
       *) echo "Existing chezmoi source belongs to another repo: $source_path" >&2; exit 1 ;;
     esac
-    chezmoi update --apply
+    chezmoi update --apply=false
   else
-    chezmoi init --apply "$REPO"
+    chezmoi init --apply=false "$REPO"
   fi
 }
 
@@ -152,8 +152,9 @@ main() {
 
   install_chezmoi
   ensure_chezmoi_config
-  apply_dotfiles
+  prepare_dotfiles
   install_packages
+  chezmoi apply
 
   log "Done. Restart your shell or run: exec zsh"
 }

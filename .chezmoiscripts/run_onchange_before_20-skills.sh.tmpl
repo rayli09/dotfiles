@@ -1,0 +1,10 @@
+{{ if ne .chezmoi.os "windows" -}}
+#!/usr/bin/env bash
+# catalog: {{ include (joinPath .chezmoi.sourceDir "skills-lock.json") | sha256sum }}
+# tools: {{ include (joinPath .chezmoi.sourceDir "mise.lock") | sha256sum }}
+# mise: {{ include (joinPath .chezmoi.sourceDir "mise-bootstrap.env") | sha256sum }}
+# restore: {{ include (joinPath .chezmoi.sourceDir "scripts" "skills.mjs") | sha256sum }}
+set -euo pipefail
+bash {{ joinPath .chezmoi.sourceDir "scripts" "install-tools.sh" | quote }}
+bash {{ joinPath .chezmoi.sourceDir "scripts" "install-skills.sh" | quote }}
+{{ end -}}

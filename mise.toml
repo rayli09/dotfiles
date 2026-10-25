@@ -11,6 +11,7 @@ go = "1.27.2"
 "aqua:oxc-project/oxc/oxlint" = "1.87.0"
 "npm:oxfmt" = "0.72.0"
 "npm:typescript" = "7.0.2"
+"npm:skills" = "1.7.4"
 "aqua:astral-sh/ruff" = "0.17.0"
 "aqua:astral-sh/ty" = "0.0.86"
 

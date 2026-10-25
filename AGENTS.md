@@ -11,9 +11,11 @@ project-owned skills remain outside this public repository.
   Read `docs/tools.md` for sandbox setup, updates, and verification.
 - `Brewfile.macos` and `packages/ubuntu.sh` own system package lists; shared
   runtimes are installed through the portable tools entrypoint.
-- `agents/` owns shared defaults and personal/customized skills only.
-- `.chezmoiexternal.toml` owns upstream skill paths, immutable revisions, and
-  archive checksums. Preserve contents when changing deployment; avoid vendoring.
+- `agents/AGENTS.md` and `agents/personal-skills/` own tracked guidance and
+  custom skill sources.
+- `skills-lock.json` owns pinned upstream/custom selections. The pinned Skills
+  CLI restores ignored `agents/runtime/`; chezmoi owns only discovery links.
+  Read `docs/agents.md` before catalog changes; run `bash scripts/test-skills.sh`.
 - `.chezmoiignore` excludes repository-only files and platform-specific targets.
 - Keep README focused on setup, update, and edit; put details in `docs/setup.md`.
 - Run `bash scripts/check.sh`; run `bash scripts/test-chezmoi.sh` for deployment

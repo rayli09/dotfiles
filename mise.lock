@@ -257,6 +257,12 @@ aube = { path = ".mise/locks/npm-oxfmt/0.72.0", digest = "sha256:8cff19be82a82e8
 backend = "npm:oxfmt"
 specifiers = ["0.72.0"]
 
+[[tools."npm:skills"]]
+version = "1.7.4"
+aube = { path = ".mise/locks/npm-skills/1.7.4", digest = "sha256:0fc828a5def0f23c2336c3e5094fc52f74b3b73e8f86a28c338a63c4324b902b" }
+backend = "npm:skills"
+specifiers = ["1.7.4"]
+
 [[tools."npm:typescript"]]
 version = "7.0.2"
 aube = { path = ".mise/locks/npm-typescript/7.0.2", digest = "sha256:3d06b3b23564c68cdad7815c356edb1506fab1c42bfb8c54234134fd9650ec17" }

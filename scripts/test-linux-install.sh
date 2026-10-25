@@ -51,6 +51,8 @@ zsh -lic '
   uv --version
   wrangler --version
   docker --version
+  [[ -L "$HOME/.agents/skills" ]]
+  bash "$(chezmoi source-path)/scripts/check-skills.sh"
   [[ -L "$HOME/.claude/skills" ]]
   [[ -f "$HOME/.agents/skills/cloudflare/SKILL.md" ]]
   [[ -L "$HOME/.agents/AGENTS.md" ]]

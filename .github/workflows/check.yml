@@ -18,8 +18,15 @@ jobs:
         run: sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b "$HOME/.local/bin"
       - name: Test script behavior
         run: bash scripts/test-scripts.sh
-      - name: Test dotfile deployment
-        run: bash scripts/test-chezmoi.sh
+      - name: Install shared tools and pinned Skills CLI
+        run: bash scripts/install-tools.sh
+      - name: Lint and format-check skill restore helper
+        run: |
+          source scripts/tools-env.sh
+          oxlint scripts/skills.mjs
+          oxfmt --check scripts/skills.mjs
+      - name: Test frozen skill restore and agent discovery
+        run: bash scripts/test-skills.sh
       - name: Run checks
         run: scripts/check.sh
 

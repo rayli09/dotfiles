@@ -16,6 +16,9 @@ scripts=(
   scripts/macos-defaults.sh
   scripts/smoke.sh
   scripts/install-tools.sh
+  scripts/install-skills.sh
+  scripts/check-skills.sh
+  scripts/test-skills.sh
   scripts/tools-env.sh
   scripts/check-tools.sh
   scripts/test-tools.sh

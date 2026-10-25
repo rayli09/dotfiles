@@ -20,6 +20,7 @@ checks = {
     "python": (["python3", "--version"], lambda text: text.split()[1]),
     "aqua:oxc-project/oxc/oxlint": (["oxlint", "--version"], lambda text: text.split()[-1]),
     "npm:oxfmt": (["oxfmt", "--version"], lambda text: text.split()[-1]),
+    "npm:skills": (["skills", "--version"], str.strip),
     "npm:typescript": (["tsc", "--version"], lambda text: text.split()[-1]),
     "aqua:astral-sh/ruff": (["ruff", "--version"], lambda text: text.split()[1]),
     "aqua:astral-sh/ty": (["ty", "--version"], lambda text: text.split()[1]),

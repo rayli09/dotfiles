@@ -6,6 +6,7 @@ Containerfile.*
 install.sh
 install.ps1
 mise-bootstrap.env
+skills-lock.json
 mise.toml
 mise.lock
 .mise/**

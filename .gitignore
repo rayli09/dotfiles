@@ -9,3 +9,6 @@ id_*
 !private_dot_ssh/config.tmpl
 .macos-preferences/
 .tools/
+/.agents/
+/agents/runtime/
+/agents/.skills-stage-*/

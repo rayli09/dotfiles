@@ -1,45 +1,83 @@
-# Shared agent setup
+# Shared skills and agent guidance
 
-Dotfiles owns the selection and versions of skills, plus your personal
-instructions and customizations. Third-party packages are not vendored.
-
-- Edit `agents/AGENTS.md` for shared personal instructions.
-- Edit `agents/personal-skills/` for local/customized packages.
-- Edit `.chezmoiexternal.toml` to add or update upstream skills. Each entry pins
-  a full commit SHA, the selected archive path, and its SHA-256 checksum.
-
-`chezmoi apply` downloads the declared upstream skills into `~/.agents/skills`. It
-verifies archive checksums and caches downloads. The same directory contains
-links to personal skills in the dotfiles checkout. `~/.claude/skills` links to
-this collection; Codex, Muse, and OpenCode discover it directly. Their native
-personal-instruction entrypoints share `~/.agents/AGENTS.md`.
-
-`chezmoi update` pulls the manifest and applies it. A skill changes only when
-its pinned revision changes; repeating setup keeps the same versions.
-
-Keep project-owned skills in their repositories. Credentials, MCP headers,
-models, providers, sessions, plugins, and usage ledgers remain local.
-
-## Update an upstream skill
-
-Select and review an upstream commit. Update that skill's archive URL and
-checksum in `.chezmoiexternal.toml`; keep the archive path correct. Then run:
+From the dotfiles checkout:
 
 ```bash
-bash scripts/test-chezmoi.sh
-chezmoi diff
-chezmoi apply
+bash scripts/install-tools.sh
+bash scripts/install-skills.sh
+bash scripts/check-skills.sh
 ```
 
-`exact = true` applies within an individual upstream skill directory, so files
-removed upstream are also removed there. Put your changes in a personal variant
-rather than editing downloaded packages.
+`chezmoi update` also restores skills when the catalog or installer changes,
+before applying agent links. The normal full installer prepares system packages
+first. No third-party skill files are committed to this repository.
 
-Check discovery with `muse skills list --source user --json` or
-`opencode debug skill`. External services/CLIs required by a skill are separate.
+## Ownership
 
-Sources: [chezmoi externals](https://www.chezmoi.io/reference/special-files/chezmoiexternal-format/),
-[Codex](https://learn.chatgpt.com/docs/build-skills),
-[Claude](https://code.claude.com/docs/en/skills),
-[Muse](https://meta-models.github.io/muse-code-sdk/next/guides/extend/skills/),
-[OpenCode](https://opencode.ai/docs/skills/).
+- `skills-lock.json` is the Skills CLI-generated catalog: upstream commit pins,
+  exact skill paths, content hashes, and relative custom sources.
+- `agents/personal-skills/` owns custom skills and customized upstream variants.
+- `agents/runtime/` is the generated, ignored collection. The pinned Skills CLI
+  in mise owns its contents; chezmoi only links `~/.agents/skills` to it.
+- Claude links to that same collection. Codex, Muse, and OpenCode discover the
+  shared collection directly. Keeping generated skills outside repository
+  `.agents/skills` avoids a second project-scope discovery path. `agents/AGENTS.md` owns shared instructions.
+
+Project-owned skills stay in their projects. Managed system skills and plugins,
+credentials, providers, sessions, and MCP settings remain in their own locations.
+
+## Discover and review changes
+
+Activate the shared tools, then use `skills find`, `skills add <repo> --list`,
+and `skills list --global`. Make catalog changes in a review checkout so CLI mutations do
+not change your live collection before review.
+
+For example, this selects one skill at a full reviewed commit:
+
+```bash
+source scripts/tools-env.sh
+skills add 'emilkowalski/skills#2d228630ba1446365f614a108cb8252f1feda202' \
+  --skill animate --agent codex --yes
+git diff -- skills-lock.json
+bash scripts/install-skills.sh
+bash scripts/test-skills.sh
+```
+
+To refresh a custom skill after editing its source:
+
+```bash
+skills add ./agents/personal-skills/college-ps --agent codex --yes
+```
+
+Commit the catalog and custom source changes together. The verified installer
+accepts full Git commit SHAs, not floating branches/tags, and reserves custom
+skill names for their local sources. New sources or CLI upgrades require tests.
+
+## Frozen restoration
+
+The installer runs the pinned CLI's `experimental_install` in a staging
+checkout with the custom sources. It rejects changed catalog bytes, wrong
+inventories, changed custom sources, and mismatched content hashes before
+replacing the prior generated collection. A failed restore preserves the
+previous collection. Verification may also target another discovery path:
+
+```bash
+bash scripts/check-skills.sh "$HOME/.agents/skills"
+```
+
+Skills CLI 1.7.4 can rewrite lock hashes during restoration, so its lockfile is
+not a frozen-install guarantee by itself. `skills check` also uses its updater
+and can mutate installations; run check/update commands in a review checkout.
+Our verified installer supplies the missing fail-closed boundary.
+
+## Tests and discovery
+
+`bash scripts/test-skills.sh` uses a separate source copy. It tests cold/repeat
+CLI restoration, unchanged metadata, custom files, agent links, and rejection of
+corrupt content, rewritten hashes, floating refs, and custom-name collisions.
+Full Ubuntu/Debian installation tests exercise the chezmoi hook as well.
+Restart coding agents after changing skills. Where available, inspect discovery
+with `muse skills list --source user --json` and `opencode debug skill`.
+
+References: [Skills CLI](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)
+· [Agent Skills format](https://agentskills.io/specification)

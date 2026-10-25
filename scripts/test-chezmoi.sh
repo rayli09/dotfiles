@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source_path="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source_path="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 test_root="$(mktemp -d)"
 trap 'rm -rf "$test_root"' EXIT
 
 for os in darwin linux; do
   destination="$test_root/$os"
-  mkdir -p "$destination/.agents" "$test_root/legacy-skills"
-  # Older installs linked the entire collection into the dotfiles checkout.
-  ln -s "$test_root/legacy-skills" "$destination/.agents/skills"
+  mkdir -p "$destination"
   config="$test_root/$os.toml"
   cat > "$config" <<'CONFIG'
 [data]
@@ -19,30 +17,21 @@ CONFIG
   cm=(chezmoi --source "$source_path" --destination "$destination"
     --config "$config" --persistent-state "$test_root/$os-state.boltdb"
     --cache "$test_root/cache" --override-data "{\"chezmoi\":{\"os\":\"$os\"}}")
-  "${cm[@]}" apply --force
-  "${cm[@]}" apply --force
-  "${cm[@]}" verify
+  "${cm[@]}" apply --force --exclude scripts
+  "${cm[@]}" apply --force --exclude scripts
+  "${cm[@]}" verify --exclude scripts
 
-  [[ -d "$destination/.agents/skills" && ! -L "$destination/.agents/skills" ]]
-  [[ -L "$destination/.agents/skills/public-market-signal-research" ]]
+  [[ -L "$destination/.agents/skills" ]]
   [[ -f "$destination/.agents/skills/cloudflare/SKILL.md" ]]
-  count=0
-  for manifest in "$destination"/.agents/skills/*/SKILL.md; do
-    [[ -f "$manifest" ]]
-    count=$((count + 1))
-  done
-  expected_count="$(grep -c '^\["\.agents/skills/' "$source_path/.chezmoiexternal.toml")"
-  for manifest in "$source_path"/agents/personal-skills/*/SKILL.md; do
-    [[ -f "$manifest" ]]
-    expected_count=$((expected_count + 1))
-  done
-  [[ "$count" -eq "$expected_count" ]]
+  cmp "$destination/.agents/skills/college-ps/SKILL.md" "$source_path/agents/personal-skills/college-ps/SKILL.md"
+  cmp "$destination/.agents/skills/code-review/SKILL.md" "$source_path/agents/personal-skills/code-review/SKILL.md"
   cmp "$destination/.agents/AGENTS.md" "$source_path/agents/AGENTS.md"
   for path in .claude/CLAUDE.md .codex/AGENTS.md .config/opencode/AGENTS.md; do
     cmp "$destination/$path" "$source_path/agents/AGENTS.md"
   done
   [[ -L "$destination/.claude/skills" ]]
   [[ -f "$destination/.claude/skills/agents-sdk/SKILL.md" ]]
+  [[ ! -e "$destination/skills-lock.json" ]]
   [[ ! -e "$destination/README.md" && ! -e "$destination/agents" ]]
   [[ ! -e "$destination/scripts" && ! -e "$destination/packages" ]]
   [[ ! -e "$destination/mise.toml" && ! -e "$destination/mise.lock" ]]

@@ -36,7 +36,7 @@ remains an explicit choice through the full [installer](setup.md).
 ## Versions and updates
 
 `mise.toml` declares Node/npm, Bun, pnpm, Go, Python/uv, TypeScript, Oxlint/Oxfmt,
-Ruff, and ty. `mise.lock` pins artifacts for all four supported platforms.
+Ruff, ty, and the Skills CLI. `mise.lock` pins artifacts for all four supported platforms.
 Commit `.mise/locks/` too: it holds locked npm dependency graphs.
 
 After reviewing a version change in `mise.toml`:

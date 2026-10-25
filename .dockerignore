@@ -11,3 +11,6 @@ outputs
 *.mobileprovision
 id_*
 .tools
+.agents
+agents/runtime
+agents/.skills-stage-*

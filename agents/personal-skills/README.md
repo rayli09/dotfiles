@@ -5,6 +5,8 @@
 - `playwright`: customized OpenAI skill instructions and CLI reference; original helper scripts retained.
 - `college-ps`: composed prose-editing methods adapted for undergraduate personal statements, with admissions sources and public essay studies.
 
-The rest of the collection is declared in the root `.chezmoiexternal.toml`.
-These local variants intentionally keep their public skill names. To switch one
-back to upstream, remove its local symlink target before adding an external entry.
+The complete selection is recorded in the root `skills-lock.json`. Custom
+sources stay here; the Skills CLI generates runtime copies. After an edit,
+refresh the local catalog entry with `skills add`, then test frozen restoration.
+See [skill management](../../docs/agents.md). These variants intentionally keep
+their public skill names, which are reserved while the local source exists.
