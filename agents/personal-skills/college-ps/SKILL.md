@@ -117,3 +117,7 @@ editorial axes totaling 100 points, evidence anchors, and a revision loop.
 Keep weights stable across comparisons, protect the student's voice, and report
 submission readiness separately. Scores are subjective editing judgments, never
 admissions predictions. Ordinary reviews need no numerical rating.
+When a working document has an active score table, refresh it after every
+authorized essay edit, including minor fixes and restorations, before reporting
+completion. Keep its score, local timestamp, and word count current even when
+the numerical rating stays the same.

@@ -70,6 +70,14 @@ prompt fit, compliance with recipient assistance rules, or readiness to submit.
    changed axes using the same anchors; carry unchanged scores forward unless
    a demonstrated interaction or explicitly explained recalibration affects them.
    Report the total delta and any tradeoff. Keeping the same score is valid.
+   If the working document has an active score table, update that table in place
+   in the same turn after every essay edit, including small corrections and
+   restored text. Refresh the local review timestamp, current working word
+   count, scores, total, and any stale assessment notes; verify they describe
+   the saved draft before reporting completion. This applies even when scores
+   remain unchanged. Keep one latest table; preserve earlier baselines and
+   comparisons outside the essay body. Updating score metadata alone does not
+   trigger another scoring cycle.
 4. Accept improvement only when the reader problem improves without invented
    facts, changed meaning, or lost student voice. A higher total cannot offset
    these failures. Keep a clear student phrase when a polish-only alternative
