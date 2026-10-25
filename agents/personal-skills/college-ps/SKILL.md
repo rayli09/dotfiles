@@ -108,3 +108,12 @@ method, and verify the destination counter when available. Remove redundancy
 before removing the details or reflections that make the applicant recognizable.
 End with a clear judgment of the current draft and its remaining blockers;
 do not assign pseudo-precise admissions scores or probabilities.
+
+## Score revisions when requested
+
+For a numerical review, baseline, or comparison across versions, use
+[revision-scorecard.md](references/revision-scorecard.md). It defines eight
+editorial axes totaling 100 points, evidence anchors, and a revision loop.
+Keep weights stable across comparisons, protect the student's voice, and report
+submission readiness separately. Scores are subjective editing judgments, never
+admissions predictions. Ordinary reviews need no numerical rating.
