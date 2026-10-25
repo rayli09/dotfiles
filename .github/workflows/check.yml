@@ -16,6 +16,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y shellcheck
       - name: Install chezmoi
         run: sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b "$HOME/.local/bin"
+      - name: Test script behavior
+        run: bash scripts/test-scripts.sh
       - name: Test dotfile deployment
         run: bash scripts/test-chezmoi.sh
       - name: Run checks
@@ -34,3 +36,32 @@ jobs:
         run: scripts/macos-defaults.sh
       - name: Assert managed macOS defaults
         run: scripts/assert-macos-preferences.sh
+
+  linux-install:
+    name: Linux install (${{ matrix.image }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image: [ubuntu:24.04, debian:bookworm]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build clean integration image
+        run: docker build --build-arg BASE_IMAGE=${{ matrix.image }} -f Containerfile.integration -t dotfiles-integration .
+      - name: Test fresh install, repeat setup, and updates
+        run: docker run --rm dotfiles-integration
+
+  windows-syntax:
+    name: PowerShell syntax
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse PowerShell scripts
+        shell: pwsh
+        run: |
+          Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
+            if ($errors.Count) { throw ($errors | Out-String) }
+          }

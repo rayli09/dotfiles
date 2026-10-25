@@ -15,7 +15,6 @@ for os in darwin linux; do
 [data]
 git_name = "Test Developer"
 git_email = "dev@example.test"
-work_email = ""
 CONFIG
   cm=(chezmoi --source "$source_path" --destination "$destination"
     --config "$config" --persistent-state "$test_root/$os-state.boltdb"
@@ -32,7 +31,12 @@ CONFIG
     [[ -f "$manifest" ]]
     count=$((count + 1))
   done
-  [[ "$count" -eq 25 ]]
+  expected_count="$(grep -c '^\["\.agents/skills/' "$source_path/.chezmoiexternal.toml")"
+  for manifest in "$source_path"/agents/personal-skills/*/SKILL.md; do
+    [[ -f "$manifest" ]]
+    expected_count=$((expected_count + 1))
+  done
+  [[ "$count" -eq "$expected_count" ]]
   cmp "$destination/.agents/AGENTS.md" "$source_path/agents/AGENTS.md"
   for path in .claude/CLAUDE.md .codex/AGENTS.md .config/opencode/AGENTS.md; do
     cmp "$destination/$path" "$source_path/agents/AGENTS.md"

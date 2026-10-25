@@ -44,7 +44,44 @@ bash "$(chezmoi source-path)/scripts/smoke.sh"
 For changes to this repo, run `bash scripts/check.sh` (needs shellcheck) and
 `bash scripts/test-chezmoi.sh` (needs chezmoi). The latter deploys into disposable
 homes and checks Linux/macOS rendering, agent links, and repeat application.
-A disposable-home check is not a full fresh-machine package-install test.
+Run `bash scripts/test-scripts.sh` for isolated command-flow checks, shared
+editor-template rendering, and failure propagation. These use stub commands,
+so they do not install or update packages.
+
+## Container tests
+
+From the checkout, run the fast Linux checks and disposable-home deployment:
+
+```bash
+docker build -f Containerfile.test -t dotfiles-check .
+docker run --rm dotfiles-check
+```
+
+For a full fresh install as a normal user with sudo, repeat setup, package
+updates, and runtime ownership checks in a fresh login shell:
+
+```bash
+docker build -f Containerfile.integration -t dotfiles-integration .
+docker run --rm dotfiles-integration
+
+# Test the same flow on Debian.
+docker build --build-arg BASE_IMAGE=debian:bookworm \
+  -f Containerfile.integration -t dotfiles-integration-debian .
+docker run --rm dotfiles-integration-debian
+```
+
+The integration image defaults to Ubuntu 24.04. It snapshots the local working
+tree, including unpublished changes, and redirects Git clone/pull to that
+snapshot inside the container. It does not fetch the dotfiles from remote
+`main`. Package and skill downloads still require network access. Each run
+starts with a fresh test user; no host home or Docker socket is mounted.
+
+`test-linux-install.sh` changes the test user's home and installs real system
+packages; run it only through the integration image. Docker CLI installation
+is checked, but daemon startup, system login behavior, and desktop applications
+require a VM or native machine. Rendering macOS templates on Linux verifies
+file contents only. Native macOS CI applies and checks macOS preferences.
+CI also runs the Linux installation flow on Ubuntu 24.04 and Debian Bookworm.
 
 ## Windows
 

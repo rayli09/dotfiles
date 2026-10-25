@@ -1,0 +1,12 @@
+.git
+.DS_Store
+.macos-preferences
+.chezmoi.local.toml
+work
+outputs
+*.age
+*.key
+*.pem
+*.p12
+*.mobileprovision
+id_*

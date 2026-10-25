@@ -16,6 +16,8 @@ scripts=(
   scripts/macos-defaults.sh
   scripts/smoke.sh
   scripts/test-chezmoi.sh
+  scripts/test-linux-install.sh
+  scripts/test-scripts.sh
   scripts/update-macos.sh
   scripts/update-ubuntu.sh
 )
@@ -33,8 +35,10 @@ fi
 shellcheck "${scripts[@]}"
 
 echo "Checking macOS defaults dry-run"
-scripts/macos-defaults.sh --dry-run >/tmp/macos-defaults-dry-run.txt
-grep -q 'defaults write com.apple.finder ShowPathbar' /tmp/macos-defaults-dry-run.txt
-grep -q 'killall Dock' /tmp/macos-defaults-dry-run.txt
+dry_run="$(mktemp)"
+trap 'rm -f "$dry_run"' EXIT
+scripts/macos-defaults.sh --dry-run > "$dry_run"
+grep -q 'defaults write com.apple.finder ShowPathbar' "$dry_run"
+grep -q 'killall Dock' "$dry_run"
 
 echo "Check passed."

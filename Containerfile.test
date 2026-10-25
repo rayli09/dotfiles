@@ -16,4 +16,4 @@ RUN sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b /usr/local/bin
 WORKDIR /work
 COPY . /work
 
-CMD ["bash", "-c", "bash scripts/check.sh && bash scripts/test-chezmoi.sh"]
+CMD ["bash", "-c", "bash scripts/check.sh && bash scripts/test-scripts.sh && bash scripts/test-chezmoi.sh"]

@@ -55,19 +55,13 @@ install_linux_basics() {
   fi
 
   as_root apt-get update
+  # Only prerequisites needed to fetch dotfiles and register package repositories.
   as_root apt-get install -y \
-    build-essential \
     ca-certificates \
     curl \
-    file \
     git \
     gnupg \
-    lsb-release \
-    procps \
-    software-properties-common \
-    sudo \
-    unzip \
-    zsh
+    sudo
 }
 
 install_chezmoi() {
@@ -100,7 +94,6 @@ ensure_chezmoi_config() {
 [data]
   git_name = "Ruize Li"
   git_email = "you@example.com"
-  work_email = ""
 EOF
 }
 
@@ -110,7 +103,8 @@ apply_dotfiles() {
   local source_path remote
   source_path="$(chezmoi source-path)"
   if [[ -d "$source_path/.git" ]]; then
-    remote="$(git -C "$source_path" remote get-url origin)"
+    # Validate the stored origin; Git URL rewrites may point it at a mirror.
+    remote="$(git -C "$source_path" config --get remote.origin.url)"
     case "$remote" in
       https://github.com/rayli09/dotfiles|https://github.com/rayli09/dotfiles.git|git@github.com:rayli09/dotfiles.git) ;;
       *) echo "Existing chezmoi source belongs to another repo: $source_path" >&2; exit 1 ;;

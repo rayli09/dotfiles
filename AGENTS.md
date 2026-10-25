@@ -15,6 +15,9 @@ project-owned skills remain outside this public repository.
 - Run `bash scripts/check.sh`; run `bash scripts/test-chezmoi.sh` for deployment
   or template changes. Both use disposable destinations; never apply the full
   configuration to the developer's home as a test.
+- Run `bash scripts/test-scripts.sh` for script behavior changes. Container
+  integration commands and coverage limits live in `docs/setup.md`; run
+  `scripts/test-linux-install.sh` only in its disposable integration image.
 - Preserve local uncommitted edits; validate changes before publishing.
 - Whenever you change this repository, run the relevant checks, commit your
   changes, and push to the remote before finishing the task. Include only the

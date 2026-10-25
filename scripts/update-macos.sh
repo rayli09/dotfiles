@@ -9,17 +9,17 @@ brew bundle --file="$source_path/Brewfile.macos"
 brew cleanup
 
 if command -v mas >/dev/null 2>&1; then
-  mas upgrade || true
+  mas upgrade
 fi
 
 if command -v mise >/dev/null 2>&1; then
-  mise upgrade || true
-  mise install || true
+  mise upgrade
+  mise install
   eval "$(mise activate bash)"
 fi
 
 if command -v npm >/dev/null 2>&1; then
-  npm install -g wrangler@latest || true
+  npm install -g wrangler@latest
 fi
 
 for editor in code cursor; do

@@ -16,16 +16,19 @@ as_root() {
 install_apt_packages() {
   as_root apt-get update
   as_root apt-get install -y \
+    1password-cli \
     bat \
     btop \
     build-essential \
     ca-certificates \
+    cloudflared \
     curl \
     direnv \
     fd-find \
     fzf \
     git \
     git-lfs \
+    gh \
     gnupg \
     htop \
     jq \
@@ -35,6 +38,7 @@ install_apt_packages() {
     libreadline-dev \
     libsqlite3-dev \
     libssl-dev \
+    mise \
     pkg-config \
     python3 \
     python3-pip \
@@ -52,32 +56,29 @@ install_apt_packages() {
     zsh
 }
 
-install_1password_cli() {
-  if has op; then
+configure_1password_cli_repository() {
+  if [[ -f /etc/apt/sources.list.d/1password.list ]]; then
     return
   fi
 
   as_root install -d -m 0755 /usr/share/keyrings
-  curl -sS https://downloads.1password.com/linux/keys/op.asc \
+  curl -fsSL https://downloads.1password.com/linux/keys/1password.asc \
     | as_root gpg --dearmor --yes --output /usr/share/keyrings/1password-archive-keyring.gpg
 
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" \
     | as_root tee /etc/apt/sources.list.d/1password.list >/dev/null
 
   as_root install -d -m 0755 /etc/debsig/policies/AC2D62742012EA22
-  curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol \
+  curl -fsSL https://downloads.1password.com/linux/debian/debsig/1password.pol \
     | as_root tee /etc/debsig/policies/AC2D62742012EA22/1password.pol >/dev/null
 
   as_root install -d -m 0755 /usr/share/debsig/keyrings/AC2D62742012EA22
-  curl -sS https://downloads.1password.com/linux/keys/op.asc \
+  curl -fsSL https://downloads.1password.com/linux/keys/1password.asc \
     | as_root gpg --dearmor --yes --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-
-  as_root apt-get update
-  as_root apt-get install -y 1password-cli
 }
 
-install_github_cli() {
-  if has gh; then
+configure_github_cli_repository() {
+  if [[ -f /etc/apt/sources.list.d/github-cli.list ]]; then
     return
   fi
 
@@ -88,13 +89,10 @@ install_github_cli() {
 
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
     | as_root tee /etc/apt/sources.list.d/github-cli.list >/dev/null
-
-  as_root apt-get update
-  as_root apt-get install -y gh
 }
 
-install_cloudflared() {
-  if has cloudflared; then
+configure_cloudflared_repository() {
+  if [[ -f /etc/apt/sources.list.d/cloudflared.list ]]; then
     return
   fi
 
@@ -104,13 +102,10 @@ install_cloudflared() {
 
   echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main" \
     | as_root tee /etc/apt/sources.list.d/cloudflared.list >/dev/null
-
-  as_root apt-get update
-  as_root apt-get install -y cloudflared
 }
 
-install_mise() {
-  if has mise; then
+configure_mise_repository() {
+  if [[ -f /etc/apt/sources.list.d/mise.list ]]; then
     return
   fi
 
@@ -120,9 +115,6 @@ install_mise() {
 
   echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.asc] https://mise.en.dev/deb stable main" \
     | as_root tee /etc/apt/sources.list.d/mise.list >/dev/null
-
-  as_root apt-get update
-  as_root apt-get install -y mise
 }
 
 install_symlinks() {
@@ -155,7 +147,7 @@ install_uv() {
 
 enable_corepack() {
   if has corepack; then
-    corepack enable || true
+    corepack enable
   fi
 }
 
@@ -198,15 +190,15 @@ set_default_shell() {
     return
   fi
 
-  chsh -s "$(command -v zsh)" || true
+  as_root chsh -s "$(command -v zsh)" "$USER"
 }
 
 main() {
+  configure_1password_cli_repository
+  configure_github_cli_repository
+  configure_cloudflared_repository
+  configure_mise_repository
   install_apt_packages
-  install_1password_cli
-  install_github_cli
-  install_cloudflared
-  install_mise
   install_symlinks
   install_bun
   install_uv

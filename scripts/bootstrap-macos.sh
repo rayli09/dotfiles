@@ -11,7 +11,7 @@ if command -v mise >/dev/null 2>&1; then
 fi
 
 if command -v corepack >/dev/null 2>&1; then
-  corepack enable || true
+  corepack enable
 fi
 
 if command -v npm >/dev/null 2>&1; then

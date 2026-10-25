@@ -21,28 +21,27 @@ update_apt() {
 
 update_bun() {
   if has bun; then
-    bun upgrade || true
+    bun upgrade
   fi
 }
 
 update_uv() {
   if has uv; then
-    uv self update || true
+    uv self update
   fi
 }
 
 update_mise() {
   if has mise; then
-    mise self-update -y || true
-    mise upgrade || true
-    mise install || true
+    mise upgrade
+    mise install
     eval "$(mise activate bash)"
   fi
 }
 
 update_node_globals() {
   if has npm; then
-    npm install -g wrangler@latest || true
+    npm install -g wrangler@latest
   fi
 }
 

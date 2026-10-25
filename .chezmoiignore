@@ -1,7 +1,8 @@
 README.md
 AGENTS.md
 Brewfile*
-Containerfile.test
+Containerfile.*
+.dockerignore
 install.sh
 install.ps1
 scripts/**

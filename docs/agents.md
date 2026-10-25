@@ -4,11 +4,11 @@ Dotfiles owns the selection and versions of skills, plus your personal
 instructions and customizations. Third-party packages are not vendored.
 
 - Edit `agents/AGENTS.md` for shared personal instructions.
-- Edit `agents/personal-skills/` for the three local/customized packages.
+- Edit `agents/personal-skills/` for local/customized packages.
 - Edit `.chezmoiexternal.toml` to add or update upstream skills. Each entry pins
   a full commit SHA, the selected archive path, and its SHA-256 checksum.
 
-`chezmoi apply` downloads the 22 upstream skills into `~/.agents/skills`. It
+`chezmoi apply` downloads the declared upstream skills into `~/.agents/skills`. It
 verifies archive checksums and caches downloads. The same directory contains
 links to personal skills in the dotfiles checkout. `~/.claude/skills` links to
 this collection; Codex, Muse, and OpenCode discover it directly. Their native
