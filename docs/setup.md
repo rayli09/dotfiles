@@ -1,5 +1,22 @@
 # Setup details
 
+## First run
+
+The installer sets up shell tools, runtimes, editor settings, and shared agent
+instructions and skills. macOS also installs desktop apps. Install agent
+apps/CLIs separately and sign in to the services you use.
+
+Set your Git identity once:
+
+```bash
+chezmoi edit-config  # set data.git_name and data.git_email
+chezmoi apply
+gh auth login
+```
+
+Sign in to 1Password with `op signin`. Keep secrets in 1Password or local
+ignored files; credentials are not copied by this repository.
+
 ## Requirements
 
 macOS uses Homebrew. Linux supports apt-based Ubuntu/Debian, with a normal user
@@ -13,8 +30,7 @@ edit the actual source. A separate Git clone is useful for development, but
 running its installer still uses the configured chezmoi checkout.
 
 Runtime versions live in `private_dot_config/mise/config.toml`; package lists
-live in `Brewfile.macos` and `packages/ubuntu.sh`. Sign in to 1Password with
-`op signin`. Local Git identity and machine values live in
+live in `Brewfile.macos` and `packages/ubuntu.sh`. Local Git identity and machine values live in
 `~/.config/chezmoi/chezmoi.toml`; these are not committed.
 
 On macOS, Homebrew owns system tools, Bun, uv, and desktop apps; mise owns
@@ -22,6 +38,24 @@ Node, Python, and Go. Wrangler is installed through npm after mise activation.
 Homebrew may also install runtimes as dependencies of other formulae.
 The shared editor extension list is `private_dot_config/vscode/extensions.txt`;
 macOS and Windows bootstrap/update scripts read it for VS Code and Cursor.
+
+## Updating packages
+
+`chezmoi update` pulls and applies dotfiles and agent skills. Update installed
+packages separately:
+
+```bash
+bash "$(chezmoi source-path)/scripts/update-macos.sh"   # macOS
+bash "$(chezmoi source-path)/scripts/update-ubuntu.sh"  # Ubuntu/Debian
+```
+
+## Editing
+
+Run `chezmoi cd` to enter the source checkout. Edit `dot_zshrc`,
+`agents/AGENTS.md`, `agents/personal-skills/`, or the package lists, then run
+`chezmoi diff` and `chezmoi apply`. Commit and push the intended changes.
+Keep project-specific skills in their projects. Restart coding agents after
+updating their setup.
 
 ## Optional macOS preferences
 
