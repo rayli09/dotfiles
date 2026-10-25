@@ -1,26 +1,35 @@
 #!/usr/bin/env bash
 set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-source "$repo_root/toolchain.env"
 source "$repo_root/scripts/tools-env.sh"
 cd "$repo_root"
-require_version() {
-  local expected="$1" actual="$2" tool="$3"
-  [[ "$actual" == "$expected" ]] || { printf '%s: expected %s, got %s\n' "$tool" "$expected" "$actual" >&2; exit 1; }
-  printf '%s %s\n' "$tool" "$actual"
+python3 - "$repo_root/mise.toml" <<'VERSIONS'
+import subprocess
+import sys
+import tomllib
+
+with open(sys.argv[1], "rb") as config:
+    tools = tomllib.load(config)["tools"]
+checks = {
+    "node": (["node", "--version"], lambda text: text.strip().removeprefix("v")),
+    "npm": (["npm", "--version"], str.strip),
+    "bun": (["bun", "--version"], str.strip),
+    "aqua:pnpm/pnpm": (["pnpm", "--version"], str.strip),
+    "aqua:astral-sh/uv": (["uv", "--version"], lambda text: text.split()[1]),
+    "go": (["go", "version"], lambda text: text.split()[2].removeprefix("go")),
+    "python": (["python3", "--version"], lambda text: text.split()[1]),
+    "aqua:oxc-project/oxc/oxlint": (["oxlint", "--version"], lambda text: text.split()[-1]),
+    "npm:oxfmt": (["oxfmt", "--version"], lambda text: text.split()[-1]),
+    "npm:typescript": (["tsc", "--version"], lambda text: text.split()[-1]),
+    "aqua:astral-sh/ruff": (["ruff", "--version"], lambda text: text.split()[1]),
+    "aqua:astral-sh/ty": (["ty", "--version"], lambda text: text.split()[1]),
 }
-require_version "v$NODE_VERSION" "$(node --version)" node
-require_version "$NPM_VERSION" "$(npm --version)" npm
-require_version "$BUN_VERSION" "$(bun --version)" bun
-require_version "$PNPM_VERSION" "$(pnpm --version)" pnpm
-require_version "$UV_VERSION" "$(uv --version | awk '{print $2}')" uv
-require_version "go$GO_VERSION" "$(go version | awk '{print $3}')" go
-require_version "$PYTHON_VERSION" "$(python3 --version | awk '{print $2}')" python
-require_version "$OXLINT_VERSION" "$(oxlint --version | awk '{print $NF}')" oxlint
-require_version "$OXFMT_VERSION" "$(oxfmt --version | awk '{print $NF}')" oxfmt
-require_version "$TYPESCRIPT_VERSION" "$(tsc --version | awk '{print $NF}')" typescript
-require_version "$RUFF_VERSION" "$(ruff --version | awk '{print $2}')" ruff
-require_version "$TY_VERSION" "$(ty --version | awk '{print $2}')" ty
+assert tools.keys() == checks.keys(), "Update executable checks when changing tools"
+for name, (command, parse) in checks.items():
+    actual = parse(subprocess.check_output(command, text=True))
+    assert actual == tools[name], f"{name}: expected {tools[name]}, got {actual}"
+    print(f"{name} {actual}")
+VERSIONS
 
 scratch_dir="$(mktemp -d)"
 trap 'rm -rf "$scratch_dir"' EXIT

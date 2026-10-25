@@ -29,12 +29,12 @@ The default chezmoi checkout is `~/.local/share/chezmoi`. Use `chezmoi cd` to
 edit the actual source. A separate Git clone is useful for development, but
 running its installer still uses the configured chezmoi checkout.
 
-Shared runtime and quality-tool pins live in `toolchain.env`; the portable
+Shared runtime and quality-tool pins live in `mise.toml` and `mise.lock`; the portable
 installer is described in [tools](tools.md). System package lists live in
 `Brewfile.macos` and `packages/ubuntu.sh`. Local Git identity and machine values
 live in `~/.config/chezmoi/chezmoi.toml`; these are not committed.
 
-Homebrew/apt own system tools and desktop apps. The shared tools installer owns
+Homebrew/apt own system tools and desktop apps. Mise owns
 Node/npm, Bun, pnpm, Python/uv, Go, and quality tools under
 `~/.local/share/dotfiles-tools`. Zsh activates that installation when present.
 Wrangler is installed through the shared npm. System package managers may

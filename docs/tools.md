@@ -1,25 +1,27 @@
 # Portable tools
 
-From a dotfiles checkout, install the shared toolchain and activate it:
+From a dotfiles checkout:
 
 ```bash
 bash scripts/install-tools.sh
 source "$HOME/.local/share/dotfiles-tools/env.sh"
 ```
 
-The same installer is used by personal-machine setup and dev-workbench. It
-installs Node/npm, Bun, pnpm, Go, Python/uv, TypeScript, Oxlint/Oxfmt, Ruff, and ty.
-Versions and Node/Go archive checksums live in `toolchain.env`.
+Personal-machine setup and dev-workbench use this same entrypoint. Chezmoi
+manages personal files; mise owns the shared tools.
 
 ## Sandboxes and agents
 
-The installer needs Bash, curl, Git, tar, awk, and a SHA-256 utility. Linux also
-needs the runtime's system libraries (on Ubuntu/Debian, `libatomic1` and
-`libstdc++6`). Linux and macOS on x64 and arm64 are supported.
+Installation supports Linux/macOS on x64/arm64 and needs Bash, curl, Git, tar,
+awk, and a SHA-256 utility. Linux needs runtime libraries (`libatomic1` and
+`libstdc++6` on Ubuntu/Debian). No sudo or shell-profile edits are required.
 
-Installation needs no sudo and makes no shell, Git, editor, or agent-config
-changes. Source the installed `env.sh` in each new command shell. For a custom
-location, export `DOTFILES_TOOLS_PREFIX` before installation and activation:
+Source the installed `env.sh` in each command shell. It puts mise and its shims
+on PATH, with configuration, tools, and caches isolated under the install prefix.
+Project mise configuration can override the shared defaults. Review and trust
+an application's mise configuration before running its tools.
+
+For a custom location:
 
 ```bash
 export DOTFILES_TOOLS_PREFIX="$PWD/.tools"
@@ -27,22 +29,33 @@ bash scripts/install-tools.sh
 source "$DOTFILES_TOOLS_PREFIX/env.sh"
 ```
 
-Use the application's runtime requirements and lockfile for project commands.
-Shared defaults provide a starting environment; they do not override a project's
-versions. Personal configuration is an explicit choice through the full
-`install.sh` entrypoint, documented in [setup](setup.md).
+The installer deploys the reviewed manifest as that prefix's global defaults
+and runs `mise install --locked`. Personal shell, Git, editor, and agent setup
+remains an explicit choice through the full [installer](setup.md).
 
-## Updating
+## Versions and updates
 
-Resolve and review versions from official vendor releases and npm/PyPI. Update
-`toolchain.env`, including Node/Go archive checksums, then run the install and
-checks. Installation reapplies those pins; it does not resolve floating latest
-versions. `scripts/check-tools.sh` verifies exact versions and executes small
-JavaScript, TypeScript, Python, and Go checks.
+`mise.toml` declares Node/npm, Bun, pnpm, Go, Python/uv, TypeScript, Oxlint/Oxfmt,
+Ruff, and ty. `mise.lock` pins artifacts for all four supported platforms.
+Commit `.mise/locks/` too: it holds locked npm dependency graphs.
 
-Dev-workbench pins a dotfiles commit through its `dotfiles` Git submodule and
-adds Cloud-specific tools. Update and test that pin deliberately; changes to
-this repository's main branch do not change an existing workbench pin.
+After reviewing a version change in `mise.toml`:
+
+```bash
+source "$HOME/.local/share/dotfiles-tools/env.sh"
+mise trust mise.toml
+mise lock
+bash scripts/install-tools.sh
+```
+
+Generate lockfiles with the pinned mise release; do not hand-edit lockfiles or
+sidecars. Installation must leave them unchanged. `mise-bootstrap.env` pins only
+mise itself and the four official binary checksums; update it alongside
+`min_version` when upgrading mise.
+
+Dev-workbench pins a tested dotfiles commit and adds Cloud/native/media tools.
+Changing main does not change that pin. Application runtime requirements and
+lockfiles remain with the application.
 
 ## Tests
 
@@ -51,7 +64,8 @@ docker build -f Containerfile.tools -t dotfiles-tools .
 docker run --rm dotfiles-tools
 ```
 
-This tests fresh/repeat installation without sudo, activation in a new Bash
-shell, exact versions, executable checks, and preservation of personal config.
-CI also runs the tools test on native macOS. Full personal-machine installation
-is tested separately; see [setup](setup.md#container-tests).
+Tests cover unprivileged fresh/repeat installs, exact executable versions,
+JavaScript/TypeScript/Python/Go execution, fresh-shell activation, personal-config
+preservation, unchanged locks, project overrides, and rejection of unpinned
+requests. CI also tests native macOS. Full personal-machine setup is tested
+separately; see [setup](setup.md#container-tests).

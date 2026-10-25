@@ -26,6 +26,7 @@ printf 'shared install\n' >> "$TEST_LOG"
 if [[ "${TEST_FAIL:-}" == 'shared install' ]]; then exit 42; fi
 INSTALL
 cat > "$test_root/source/scripts/tools-env.sh" <<'ACTIVATE'
+export DOTFILES_TOOLS_PREFIX="$TEST_PREFIX/tools"
 printf 'shared activate\n' >> "$TEST_LOG"
 ACTIVATE
 ln -s /bin/bash "$test_root/bin/bash"
@@ -46,7 +47,7 @@ for script in bootstrap-macos.sh update-macos.sh update-ubuntu.sh; do
   : > "$test_root/calls"
   run_script "$script"
   grep -q '^shared install$' "$test_root/calls"
-  grep -q '^npm install -g wrangler@latest$' "$test_root/calls"
+  grep -Fq "npm install -g --prefix $test_root/tools wrangler@latest" "$test_root/calls"
   if grep -Eq '^(mise |bun upgrade|uv self update|brew upgrade (bun|uv))' "$test_root/calls"; then
     echo "Shared tool ownership bypassed in $script" >&2
     exit 1

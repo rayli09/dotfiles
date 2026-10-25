@@ -37,6 +37,7 @@ bash "$installed_source/scripts/update-ubuntu.sh"
 echo "Fresh shell verification"
 zsh -lic '
   set -e
+  cd "$HOME"
   bash "$(chezmoi source-path)/scripts/smoke.sh"
   for tool in node python go; do
     resolved="$(command -v "$tool")"

@@ -2,6 +2,7 @@
 set -euo pipefail
 
 source_path="$(chezmoi source-path)"
+cd "$source_path"
 
 brew bundle --file="$source_path/Brewfile.macos"
 
@@ -9,7 +10,7 @@ bash "$source_path/scripts/install-tools.sh"
 source "$source_path/scripts/tools-env.sh"
 
 if command -v npm >/dev/null 2>&1; then
-  npm install -g wrangler@latest
+  npm install -g --prefix "$DOTFILES_TOOLS_PREFIX" wrangler@latest
 fi
 
 for editor in code cursor; do

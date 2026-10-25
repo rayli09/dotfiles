@@ -6,8 +6,9 @@ agent defaults and skills. Credentials, sessions, provider settings, and
 project-owned skills remain outside this public repository.
 
 - `install.sh` installs chezmoi, applies dotfiles, and runs the OS bootstrap.
-- `toolchain.env` and `scripts/{install-tools,tools-env,check-tools}.sh` own the
-  portable shared toolchain. Read `docs/tools.md` for sandbox use and updates.
+- `mise.toml`, `mise.lock`, and `.mise/locks/` own shared tools; generate locks
+  with the pinned mise release, never by hand. `mise-bootstrap.env` pins mise.
+  Read `docs/tools.md` for sandbox setup, updates, and verification.
 - `Brewfile.macos` and `packages/ubuntu.sh` own system package lists; shared
   runtimes are installed through the portable tools entrypoint.
 - `agents/` owns shared defaults and personal/customized skills only.

@@ -5,7 +5,10 @@ Containerfile.*
 .dockerignore
 install.sh
 install.ps1
-toolchain.env
+mise-bootstrap.env
+mise.toml
+mise.lock
+.mise/**
 scripts/**
 packages/**
 docs/**

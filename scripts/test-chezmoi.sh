@@ -45,6 +45,8 @@ CONFIG
   [[ -f "$destination/.claude/skills/agents-sdk/SKILL.md" ]]
   [[ ! -e "$destination/README.md" && ! -e "$destination/agents" ]]
   [[ ! -e "$destination/scripts" && ! -e "$destination/packages" ]]
+  [[ ! -e "$destination/mise.toml" && ! -e "$destination/mise.lock" ]]
+  [[ ! -e "$destination/.mise" && ! -e "$destination/mise-bootstrap.env" ]]
 
   if [[ "$os" == linux ]]; then
     [[ ! -e "$destination/Library" ]]

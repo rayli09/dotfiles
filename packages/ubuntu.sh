@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+source_path="$(chezmoi source-path)"
+cd "$source_path"
 
 has() {
   command -v "$1" >/dev/null 2>&1
@@ -120,7 +122,7 @@ install_node_globals() {
     return
   fi
 
-  npm install -g wrangler@latest
+  npm install -g --prefix "$DOTFILES_TOOLS_PREFIX" wrangler@latest
 }
 
 install_docker() {
@@ -154,8 +156,8 @@ main() {
   configure_cloudflared_repository
   install_apt_packages
   install_symlinks
-  bash "$(chezmoi source-path)/scripts/install-tools.sh"
-  source "$(chezmoi source-path)/scripts/tools-env.sh"
+  bash "$source_path/scripts/install-tools.sh"
+  source "$source_path/scripts/tools-env.sh"
   install_node_globals
   install_docker
   install_starship
