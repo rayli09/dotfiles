@@ -1,0 +1,4 @@
+interface:
+  display_name: "College PS Coach"
+  short_description: "Review college essays with evidence and student voice"
+  default_prompt: "Use $college-ps to review this undergraduate personal statement, identify the main revision priorities, and help the student revise in their own voice."
