@@ -2,7 +2,8 @@
 
 ## Ongoing work
 
-- For ongoing or open-ended work, proactively set a goal and keep working toward it across turns until the objective is met or the user stops or redirects it. Report meaningful findings and blockers.
+- For ongoing or open-ended work, proactively use the host agent's goal or equivalent persistent continuation mechanism when available, including in Codex, Claude Code, OpenCode, and MuseCode. Keep working across turns until the objective is met or the user stops or redirects it; report meaningful findings and blockers.
+- If the host has no such mechanism, record a clear checkpoint and state what is needed to continue; do not imply work will run unattended.
 
 ## Agent-Ready Project Standard
 
