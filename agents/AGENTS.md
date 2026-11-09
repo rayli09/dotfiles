@@ -1,5 +1,9 @@
 # Personal agent defaults
 
+## Ongoing work
+
+- For ongoing or open-ended work, proactively set a goal and keep working toward it across turns until the objective is met or the user stops or redirects it. Report meaningful findings and blockers.
+
 ## Agent-Ready Project Standard
 
 Set up every new personal repository or development project for effective agent work from the start:
