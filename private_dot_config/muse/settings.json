@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "provider": "meta",
+  "model": "muse-spark-1.3",
+  "reasoning_effort": "xhigh",
+  "model_reasoning_efforts": {
+    "muse-spark-1.3": "high"
+  },
+  "tui": {
+    "hud": {
+      "model": true,
+      "effort": true,
+      "path": true,
+      "permissions": true,
+      "context": true,
+      "branch": false,
+      "tokens": false,
+      "cost": true,
+      "quota": true
+    },
+    "theme": "default",
+    "foreign_context_notice_shown": true
+  },
+  "context": {
+    "foreign_personal_skills": false
+  },
+  "contributor_mode_enabled": true,
+  "contributor_mode_disclosure_acknowledged": true,
+  "mcpServers": {
+    "linear": {
+      "mode": "optional",
+      "transport": "streamable_http",
+      "url": "https://mcp.linear.app/mcp"
+    }
+  }
+}

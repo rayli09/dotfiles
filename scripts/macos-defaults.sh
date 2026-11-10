@@ -72,7 +72,7 @@ run defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 run defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 log "Dock"
-run defaults write com.apple.dock autohide -bool true
+run defaults write com.apple.dock autohide -bool false
 run defaults write com.apple.dock show-recents -bool false
 run defaults write com.apple.dock mru-spaces -bool false
 run defaults write com.apple.dock tilesize -int 48

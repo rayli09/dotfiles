@@ -1,0 +1,1288 @@
+model = "gpt-6.1-terra"
+model_context_window = 1000000
+model_auto_compact_token_limit = 900000
+model_reasoning_effort = "high"
+personality = "pragmatic"
+approvals_reviewer = "user"
+approval_policy = "never"
+sandbox_mode = "danger-full-access"
+plan_mode_reasoning_effort = "high"
+suppress_unstable_features_warning = true
+
+
+notify = ["/Users/ruizeli/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+service_tier = "default"
+
+[projects."/Users/ruizeli/dev/openpromo"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/interview_prep"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/meta-business-sdk-ts"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/google-ads-mcp"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/fire-calculator"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-05-11/for-algo-trading-crypto-stuff-what"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/symphony"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/fat-fire"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-05-25/so-in-downloads-folder-i-just"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-05-26/call-options"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-05-30/can-u-read-google-s-web"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-06-01/use-context7-to-read-docs-for"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/signals"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-06-28/ifi"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-11/r"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/tunnel"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-12/yiba"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-12/new-chat"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/catharine college app"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/catharine_college_app"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-12/guo-y"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-12/xiang"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/flo"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/fling-as-in-what"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/have-you-had-a-lot-of"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/e"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/cost"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/wso-i-want-to-know-what"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-14/can-u"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-15/ifwe"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/options_research"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-15/macbook-pro-m2-max-12-core"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-15/macbook-pro-m2-max-12-core-2"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-15/macbook-pro-m2-max-12-core-3"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-15/macbook-pro-m2-max-12-core-4"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-16/w"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-21/zhe"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-21/in"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-26/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-26/realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-26/r"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-27/can-u-navigate-all-the-potential"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-28/im"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/e"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/wo-zh"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/ru-go"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/hel"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/for-my-root"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/vox-style-inspired-by-the-one"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/resume"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-29/e-2"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/us_immigration"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-07-31/d"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-02/can"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-03/add"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-05/e"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-12/hm"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-12/w-h"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-12/na-g"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-12/trai"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-16/what"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-19/ew"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-08-31/new-chat"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-09-16/fill"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-09-16/fil"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-09-19/can-u-create-a-daily-schedule"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-09-19/wtf"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-subscription-k0vupC/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-electron-live-4rTLKl/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-electron-live-tPVuZt/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-electron-live-4H5FB4/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/coding-low/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/sd-high/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/coding-xhigh/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/sd-medium/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/coding-medium/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/sd-xhigh/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/coding-high/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-reasoning-UaZbBO/sd-low/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Library/Application Support/prometheus/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-native-sd-parity-xfy1UY/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-hill-proof-ps5HXA/run/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-stream-0Kz58P/champion/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-stream-0Kz58P/challenger/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/sd-stream-cancel-6fxT3a/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-stream-0Kz58P/challenger-v2/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-stream-0Kz58P/challenger-v2-fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-stream-0Kz58P/challenger-v3/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/Codex/2026-09-20/https-www-youtube-com-watch-v"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-native-kxE15B/run/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-native-kxE15B/v2/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-native-kxE15B/v3/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b/chatgpt/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c/terraform/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a/chess/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b/sora/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a/slack/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c/cicd/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b/image_sharing/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a/stripe/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b/game_distribution_platform/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c/iot_logs/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a/cloud_ide/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b-retry/chatgpt/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a-retry/chess/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c/power_grid_controller/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a-quality-retry/cloud_ide/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b-retry/sora/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a-quality-retry/slack/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b-quality-retry/image_sharing/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c/crossword_solver/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c-retry/terraform/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b-quality-retry/game_distribution_platform/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c-crossword-retry/crossword_solver/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-a-quality-retry/stripe/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-b-quality-retry/cicd/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-hill-20260920/group-c-quality-retry/iot_logs/fixed/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-effort-20260921/high/run/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-p0-effort-20260921/medium/run/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-active-scope-20260921/image_sharing-guide/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-active-scope-20260921/image_sharing-active/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-active-scope-20260921/slack-active/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-active-scope-20260921/slack-guide/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-prepend-20260921/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-prepend-opening-20260921/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-fast-20260921/r1-standard/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-fast-20260921/r1-fast/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-fast-20260921/r2-fast/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-fast-20260921/r2-standard/candidate/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/blog"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-audio-sd-1882b7f8-7969-4f85-96f4-44f403815bc3/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-chat-live-20260921-v1/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-chat-live-20260921-v2/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-chat-live-20260921-v3/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-chat-live-20260921-v4/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-chat-live-20260921-v5/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-chat-live-20260921-v6/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-rehearsal-v1/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-coding-chat-live-20260921/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-agent-test/1790101620489"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-slack-natural-20260922/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-slack-natural-20260922-v2/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-prompt-20260922/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-prompt-mic-20260922/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-audio-sd-49f826c8-56c8-4e2b-9213-74a6229c7a8b/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-audio-sd-51d47d53-efe2-44e4-9506-e0e0bf41b311/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-audio-sd-aafa71d8-f031-4b74-abb9-3fd60d00c693/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-audio-sd-dc95013d-d480-41c8-b43c-778da9a9b86b/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-proactive-slack-20260922-v2/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-mic-direct-run-20260922/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-readback-after-routing/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-coding-proactive-20260922/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-audio-sd-6115c790-e206-4954-9f96-53b03ce3a99a/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-early-mic-run/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-early-direct-recheck/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-live-v4/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-live-v5/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-preemptive-live-37nwVH/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-preemptive-live-U9jkJc/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-preemptive-live-fPZurW/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-baseline-a/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-enabled-a/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-baseline-b/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-enabled-b/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-baseline-c/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-enabled-c/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-provider-live-v1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-provider-live-v2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-provider-live-v3/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-provider-trace-v1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-trace-v1/baseline/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-trace-v1/enabled/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-provider-live-v4/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-trace-v2/baseline/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-trace-v2/enabled/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-debug/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-steer-debug-v2/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-steer-debug-v3/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-final/baseline/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-preemptive-identical-final/enabled/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-preemptive-live-D9sWl4/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-preemptive-live-hqBqpK/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-Yw5tll/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-4ky30R/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-pC4dup/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-eyimz8/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-m8BiYF/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-a0mdBt/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-xIMPhF/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-Rw5JuW/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-agent-test/1790142109786"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-realtime-electron-vEMSbg/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-realtime-electron-Svpdth/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-realtime-electron-xJByX7/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-realtime-electron-W7l3TY/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-Y6eili/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-SaR7zP/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-realtime-electron-ACo43J/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-realtime-electron-ppoDLi/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-latest-model-prompt-replay/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/coding-chat-live-3QQhVZ/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sol-low-fast-prompt-replay/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sol-low-fast-deep-replay/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sol-low-fast-number-replay/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/coding-chat-live-wH5Dyi/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-opening-repro/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-dual-mic-opening-repro/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-implicit-repro/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-title-repro/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-topic-repro/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-topic-fixed/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-topic-followup/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-topic-followup-v2/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-topic-followup-v3/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-full-catalog-mic-workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-progress-before/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-progress-after/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-progress-complete/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-progress-readback/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-progress-final/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-progress-final-v2/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-high-bar-before/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-high-bar-after/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-provider-high-bar/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-interviewer-before/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-mic-interviewer-after/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-queue-ESwIZc/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-steer-Uma3NE/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-interrupt-ngeZ81/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-steer-CGkzc0/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-interrupt-tm2bNU/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-queue-Ir2bzg/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-interrupt-dx6Y0g/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-queue-9d0h1R/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-steer-eYUCNB/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-queue-0bIJQe/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-steer-muFLXK/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-interrupt-wxL51W/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-steer-8n29te/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-queue-lNwqHH/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prom-sd-interrupt-OENGuV/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-both-files-live/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-sd-both-files-once/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-Y79gBq/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-sd-baseline-y4CTgR/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-luna-structure-run/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-luna-structure-correction-run/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-luna-structure-final-run/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-luna-structure-bounded-run/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-bda7e4c4-cb06-44c8-ac4e-a834868f75e8/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-a14274f8-f4fd-4549-b58b-3580bf21d85a/poker-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-a14274f8-f4fd-4549-b58b-3580bf21d85a/scheduler-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-a14274f8-f4fd-4549-b58b-3580bf21d85a/delayed-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-a14274f8-f4fd-4549-b58b-3580bf21d85a/workqueue-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/delayed-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/poker-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/scheduler-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/workqueue-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/poker-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/scheduler-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/delayed-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-40138e0e-3bb4-4b2a-8d92-60c8e8d6320a/workqueue-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-472b77b4-6255-4269-93fd-6f629d1f9f0f/poker-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-472b77b4-6255-4269-93fd-6f629d1f9f0f/delayed-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-472b77b4-6255-4269-93fd-6f629d1f9f0f/scheduler-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-472b77b4-6255-4269-93fd-6f629d1f9f0f/workqueue-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-c2307c3a-904a-48cf-bc57-e38c50ff384e/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-948e6150-e0a9-460e-b11c-8e29e0275309/scheduler-controlled-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-948e6150-e0a9-460e-b11c-8e29e0275309/scheduler-controlled-3/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-948e6150-e0a9-460e-b11c-8e29e0275309/scheduler-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-e039a4fd-dfbb-45f5-abda-ee0241e41547/dependency-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-e039a4fd-dfbb-45f5-abda-ee0241e41547/infection-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-e039a4fd-dfbb-45f5-abda-ee0241e41547/kv-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-e039a4fd-dfbb-45f5-abda-ee0241e41547/sql-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/cluster-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/gpu-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/chatbot-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/ip-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/allocator-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/monster-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/social-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-1c0a7afb-3ca1-4e2c-a0d8-dca6745efe9c/toy-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/chatbot-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/gpu-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/cluster-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/ip-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/allocator-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/monster-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/social-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/toy-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/chatbot-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-8a146214-05a6-482b-a522-3f1d7ac396ec/toy-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/cluster-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/chatbot-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/gpu-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/ip-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/allocator-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/monster-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/social-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/toy-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/chatbot-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/cluster-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/gpu-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/ip-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/allocator-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/monster-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/social-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f4ed37f3-080a-4ce1-b186-744649a5e1ef/toy-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-5056aeee-f57b-40b6-ba93-2a094f7de599/ip-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-5056aeee-f57b-40b6-ba93-2a094f7de599/ip-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-5056aeee-f57b-40b6-ba93-2a094f7de599/ip-natural-3/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-ae57966d-2dd1-4019-913d-529cbaa389c4/ip-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-ae57966d-2dd1-4019-913d-529cbaa389c4/ip-natural-3/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-ae57966d-2dd1-4019-913d-529cbaa389c4/ip-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/cluster-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/chatbot-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/gpu-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/ip-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/allocator-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/monster-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/social-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-63e282eb-cc70-4277-86a7-1d8b5145c71e/toy-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-7145996d-e62a-4674-8935-ca3144153ae3/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f5459e81-c28b-46d8-a187-46bb841eee36/dependency-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f5459e81-c28b-46d8-a187-46bb841eee36/infection-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-f5459e81-c28b-46d8-a187-46bb841eee36/sql-controlled-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-cdf25545-f2f1-4b9a-8815-2998e7d45b92/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-f0b26bfc-a06e-4deb-a6ea-957421d28964/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-44849cb2-6d02-4b0a-a765-6256436bb83d/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-d9071101-3310-41e7-b9e0-73d84b460670/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-666e40ba-e9a8-4c0e-af2a-5d0557a7a51c/workqueue_deps-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-666e40ba-e9a8-4c0e-af2a-5d0557a7a51c/workqueue_deps-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-abb30464-ae12-4f2c-aa2e-b53e8a96a3e9/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-803499a8-a706-4e05-b365-17e2360a1be8/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-f939f0e1-1a2e-4a61-b608-0a3339bf79ec/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-bfded29a-7afa-4df4-a766-edd9dd2cb68a/alert_router-natural-1/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-suite-bfded29a-7afa-4df4-a766-edd9dd2cb68a/alert_router-natural-2/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-coderpad-repair-e796dc08-f342-424c-86c2-9b9679f34681/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-clipboard-capture-0ce117c7-82b8-4024-864b-e2cf57206817/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-clipboard-capture-7c426841-8bd7-4a1c-86ae-f0214d01e281/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-clipboard-capture-36f16786-1649-4402-bd96-c45ec424d8dc/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/tmp/prometheus-vision-readback-2026-09-24"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-clipboard-capture-f8fab959-522e-4082-82bc-24e7dae4c59f/profile/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-coderpad-repair-01300882-fbc1-4b20-b178-40ec0f35472a/workspace"]
+trust_level = "trusted"
+
+[projects."/private/var/folders/6z/jw3vnvgs5mq_gc491fxl0qtr0000gn/T/prometheus-e2e-abba4aa9-6173-4460-9b01-96c54829c453/workspace"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/ChatGPT/open_camcorder"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/camcorder"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/Documents/ChatGPT/open_flights"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/open-dazz"]
+trust_level = "trusted"
+
+[projects."/Users/ruizeli/dev/decoupage"]
+trust_level = "trusted"
+
+[notice]
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+hide_full_access_warning = true
+fast_default_opt_out = true
+hide_rate_limit_model_nudge = true
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+
+[features]
+multi_agent = true
+prevent_idle_sleep = true
+memories = true
+rmcp_client = true
+terminal_resize_reflow = true
+chronicle = true
+suppress_unstable_features_warning = true
+js_repl = false
+local_thread_store_compression = true
+analytics_plan_history = true
+login_shell_package_path = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."linear@openai-curated"]
+enabled = true
+
+[plugins."cloudflare@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."openai-developers@openai-curated"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."messages@openai-bundled"]
+enabled = true
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/ruizeli/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/ruizeli/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "git-branch", "context-remaining", "weekly-limit", "codex-version", "context-window-size", "task-progress", "used-tokens"]
+theme = "github"
+screen_reader_detection_done = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 2
+gpt-6-astra = 4
+"gpt-6.1-sol" = 4
+
+[mcp_servers.cloudflare-api]
+url = "https://mcp.cloudflare.com/mcp"
+bearer_token_env_var = "CLOUDFLARE_API_TOKEN"
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
+
+[mcp_servers.planetscale]
+url = "https://mcp.pscale.dev/mcp/planetscale"
+
+[mcp_servers.posthog]
+url = "https://mcp.posthog.com/mcp"
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest", "--autoConnect"]
+startup_timeout_sec = 20.0
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/ruizeli/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/ruizeli/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1103.60933"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/ruizeli/.codex/plugins/cache/openai-bundled/browser/26.1103.60933/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/ruizeli/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[desktop]
+appearanceTheme = "system"
+reviewDelivery = "detached"
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+dock-icon-preference = "codex-system"
+conversationDetailMode = "STEPS_COMMANDS"
+usePointerCursors = true
+selected-avatar-id = "rocky"
+sansFontSize = 15
+codeFontSize = 13
+realtimeVoiceScreenContextEnabled = true
+show-context-window-usage = true
+open-link-in-target-preference = "external-browser"
+chronicle-menu-bar-indicator-enabled = false
+avatar-overlay-mascot-width-px = 224
+agent-usage-reset-enabled = true
+avatar-overlay-pet-visible = false
+composerPlainTextMode = true
+mac-menu-bar-enabled = true
+default-workspace-full-view = false
+autoArchiveAfterDays = 7
+toys-confetti-enabled = false
+toys-audio-visualizer-enabled = false
+migratedFollowUpQueueToSteer = true
+appearanceDarkCodeThemeId = "dracula"
+
+[desktop.open-in-target-preferences]
+global = "vscode"
+
+[desktop.open-in-target-preferences.perPath]
+"/Users/ruizeli/dev/openpromo" = "zed"
+"/Users/ruizeli/Documents/catharine college app" = "vscode"
+
+[desktop.appearanceLightChromeTheme]
+accent = "#3a83f7"
+accentSource = "chatgpt"
+contrast = 45
+ink = "#1a1c1f"
+opaqueWindows = false
+surface = "#ffffff"
+
+[desktop.appearanceLightChromeTheme.fonts]
+code = '"Source Code Pro"'
+
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#00a240"
+diffRemoved = "#ba2623"
+skill = "#924ff7"
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#ff79c6"
+accentSource = "custom"
+contrast = 60
+ink = "#f8f8f2"
+opaqueWindows = false
+surface = "#282a36"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+ui = "Satoshi"
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#50fa7b"
+diffRemoved = "#ff5555"
+skill = "#ff79c6"
+
+[hooks.state]
+
+[hooks.state."/Users/ruizeli/dev/openpromo/.codex/config.toml:post_tool_use:0:0"]
+trusted_hash = "sha256:9556bab968a4063bd584bae084b4823892bc1717925e229995697d463b5b949f"
+enabled = false
+
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "9230e2bd8b24b7ac7a0ba6774c64bf0d78ecdabbdd91d0ed627b02a587bae2df"
+
+[[skills.config]]
+path = "/Users/ruizeli/.codex/skills/hatch-pet/SKILL.md"
+enabled = false
