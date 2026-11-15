@@ -84,23 +84,3 @@ for editor in Code Cursor; do
 done
 cmp "$test_root/Code.json" "$test_root/Cursor.json"
 printf 'ok   editor settings: both destinations render the shared template\n'
-
-expect_plan() {
-  local expected="$1" path="$2"
-  /bin/bash "$source_path/scripts/verify.sh" --plan "$path" > "$test_root/output" 2>&1
-  if ! grep -Fxq "plan: $expected" "$test_root/output"; then
-    printf 'verify.sh planned %s, expected: %s\n' "$(cat "$test_root/output")" "plan: $expected" >&2
-    exit 1
-  fi
-}
-
-for case in \
-  'check docs/agents.md' \
-  'check test-scripts scripts/smoke.sh' \
-  'check test-chezmoi agents/AGENTS.md' \
-  'check test-skills skills-lock.json' \
-  'check test-tools mise.toml'
-do
-  expect_plan "${case% *}" "${case##* }"
-done
-printf 'ok   verify.sh: path selection matches the suites each change needs\n'

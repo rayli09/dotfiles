@@ -27,7 +27,6 @@ scripts=(
   scripts/test-scripts.sh
   scripts/update-macos.sh
   scripts/update-ubuntu.sh
-  scripts/verify.sh
 )
 
 echo "Checking shell syntax"
