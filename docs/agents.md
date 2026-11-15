@@ -111,12 +111,12 @@ Our verified installer supplies the missing fail-closed boundary.
 
 ## Tests and discovery
 
-`bash scripts/test-skills.sh` uses a separate source copy. It tests cold/repeat
-CLI restoration, unchanged metadata, custom files, agent links, and rejection of
-corrupt content, rewritten hashes, floating refs, and custom-name collisions.
-Full Ubuntu/Debian installation tests exercise the chezmoi hook as well.
-Restart coding agents after changing skills. Where available, inspect discovery
-with `muse skills list --source user --json` and `opencode debug skill`.
+`bash scripts/test-skills.sh` uses a separate source copy and prints each
+assertion it checks; read its `ok` lines for the current coverage rather than a
+list here that drifts. Full Ubuntu/Debian installation tests exercise the
+chezmoi hook as well. Restart coding agents after changing skills. Where
+available, inspect discovery with `muse skills list --source user --json` and
+`opencode debug skill`.
 
 References: [Skills CLI](https://github.com/vercel-labs/skills/blob/main/docs/commands.md)
 · [Agent Skills format](https://agentskills.io/specification)

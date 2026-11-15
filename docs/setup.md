@@ -78,12 +78,13 @@ bash scripts/assert-macos-preferences.sh
 bash "$(chezmoi source-path)/scripts/smoke.sh"
 ```
 
-For changes to this repo, run `bash scripts/check.sh` (needs shellcheck) and
-`bash scripts/test-chezmoi.sh` (needs chezmoi). The latter deploys into disposable
-homes and checks Linux/macOS rendering, agent links, and repeat application.
-Run `bash scripts/test-scripts.sh` for isolated command-flow checks, shared
-editor-template rendering, and failure propagation. These use stub commands,
-so they do not install or update packages.
+For changes to this repo, run `bash scripts/verify.sh`: it picks the suites the
+changed paths require, and `--plan` prints them without running. `scripts/check.sh`
+(needs shellcheck) always runs; deployment and template changes add
+`test-chezmoi.sh` (needs chezmoi), which deploys into disposable homes and checks
+Linux/macOS rendering, agent links, and repeat application; script changes add
+`test-scripts.sh` for isolated command-flow and failure-propagation checks. The
+script suites use stub commands, so they do not install or update packages.
 
 ## Container tests
 

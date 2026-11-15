@@ -18,12 +18,11 @@ project-owned skills remain outside this public repository.
   Read `docs/agents.md` before catalog changes; run `bash scripts/test-skills.sh`.
 - `.chezmoiignore` excludes repository-only files and platform-specific targets.
 - Keep README focused on setup, update, and edit; put details in `docs/setup.md`.
-- Run `bash scripts/check.sh`; run `bash scripts/test-chezmoi.sh` for deployment
-  or template changes. Both use disposable destinations; never apply the full
-  configuration to the developer's home as a test.
-- Run `bash scripts/test-scripts.sh` for script behavior changes. Container
-  integration commands and coverage limits live in `docs/setup.md`; run
-  `scripts/test-linux-install.sh` only in its disposable integration image.
+- Run `bash scripts/verify.sh` before publishing; it selects the suites the
+  changed paths need, and `--plan` prints them without running. `test-chezmoi.sh`
+  deploys into disposable destinations; never apply the full configuration to
+  the developer's home as a test. Container integration and coverage limits live
+  in `docs/setup.md`; `scripts/test-linux-install.sh` runs only in its image.
 - Whenever you change this repository, run the relevant checks, commit your
   changes, and push to the remote before finishing the task. Include only the
   task's changes in the commit and preserve unrelated local edits.
@@ -34,6 +33,5 @@ Goal behavior is owned by `agents/AGENTS.md`, deployed to `~/.agents/AGENTS.md`
 and inherited by Codex, Claude Code, Muse Code, and OpenCode. That file decides
 when to set a goal and what closing one requires.
 
-For dotfiles work, a goal names its proof: `bash scripts/check.sh`, plus
-`bash scripts/test-chezmoi.sh` or `bash scripts/test-scripts.sh` when those
-paths change, a clean `git status` for the task's files, and the pushed commit.
+For dotfiles work, a goal names its proof: `bash scripts/verify.sh` passes, the
+task's files are clean in `git status`, and the commit is pushed.
