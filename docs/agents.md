@@ -104,7 +104,7 @@ previous collection. Verification may also target another discovery path:
 bash scripts/check-skills.sh "$HOME/.agents/skills"
 ```
 
-Skills CLI 1.7.4 can rewrite lock hashes during restoration, so its lockfile is
+Skills CLI can rewrite lock hashes during restoration, so its lockfile is
 not a frozen-install guarantee by itself. `skills check` also uses its updater
 and can mutate installations; run check/update commands in a review checkout.
 Our verified installer supplies the missing fail-closed boundary.

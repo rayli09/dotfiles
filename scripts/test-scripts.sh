@@ -78,9 +78,16 @@ for script in bootstrap-macos.sh update-macos.sh update-ubuntu.sh; do
   printf 'ok   %s: shared inputs, package ownership, and failure propagation\n' "$script"
 done
 
-for editor in Code Cursor; do
-  chezmoi --source "$source_path" execute-template --file \
-    "$source_path/private_Library/Application Support/$editor/User/settings.json.tmpl" > "$test_root/$editor.json"
+for template in "$source_path/private_Library/Application Support"/*/User/settings.json.tmpl; do
+  [[ -f "$template" ]] || continue
+  editor="$(basename "$(dirname "$(dirname "$template")")")"
+  chezmoi --source "$source_path" execute-template --file "$template" > "$test_root/$editor.json"
+  if [[ -n "${first_editor:-}" ]]; then
+    cmp "$first_editor" "$test_root/$editor.json"
+  else
+    first_editor="$test_root/$editor.json"
+  fi
+  rendered=$((${rendered:-0} + 1))
 done
-cmp "$test_root/Code.json" "$test_root/Cursor.json"
-printf 'ok   editor settings: both destinations render the shared template\n'
+((rendered >= 2))
+printf 'ok   editor settings: %s destinations render the shared template\n' "$rendered"

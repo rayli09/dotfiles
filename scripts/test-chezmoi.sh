@@ -49,7 +49,11 @@ CONFIG
   else
     grep -q osxkeychain "$destination/.gitconfig"
     grep -q UseKeychain "$destination/.ssh/config"
-    [[ -f "$destination/Library/Application Support/Code/User/settings.json" ]]
+    for template in "$source_path/private_Library/Application Support"/*/User/settings.json.tmpl; do
+      [[ -f "$template" ]] || continue
+      editor="$(basename "$(dirname "$(dirname "$template")")")"
+      [[ -f "$destination/Library/Application Support/$editor/User/settings.json" ]]
+    done
   fi
   printf 'ok   %s: deployed, linked, and repeat-applied in a disposable home\n' "$os"
 done

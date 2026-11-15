@@ -6,27 +6,8 @@ cd "$source_path"
 
 scripts=(
   install.sh
-  packages/ubuntu.sh
-  scripts/assert-macos-preferences.sh
-  scripts/bootstrap-linux.sh
-  scripts/bootstrap-macos.sh
-  scripts/bootstrap-root.sh
-  scripts/check.sh
-  scripts/export-macos-preferences.sh
-  scripts/macos-defaults.sh
-  scripts/smoke.sh
-  scripts/install-tools.sh
-  scripts/install-skills.sh
-  scripts/check-skills.sh
-  scripts/test-skills.sh
-  scripts/tools-env.sh
-  scripts/check-tools.sh
-  scripts/test-tools.sh
-  scripts/test-chezmoi.sh
-  scripts/test-linux-install.sh
-  scripts/test-scripts.sh
-  scripts/update-macos.sh
-  scripts/update-ubuntu.sh
+  packages/*.sh
+  scripts/*.sh
 )
 
 echo "Checking shell syntax"
