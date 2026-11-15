@@ -25,6 +25,7 @@ Set up every new personal repository or development project for effective agent 
 - Add narrower `AGENTS.md` files only where a package or subtree genuinely needs different guidance. The nearest applicable file should refine, not duplicate, the root guidance.
 - Keep durable project knowledge in version-controlled `README.md`, `docs/`, package documentation, or repo-local skills, and link to it from `AGENTS.md` rather than bloating the root file.
 - Provide agent-discoverable setup such as an environment example, stable scripts for build/test/lint/format/typecheck, and explicit acceptance or verification expectations.
+- Bring an existing repository to the same standard before substantive work: if the root `AGENTS.md` is missing, scaffold it from what the repo proves — verification command, bootstrap, boundaries, destructive operations. The in-repo artifact is `AGENTS.md`; do not add a repo-local `.agents/` collection, which duplicates skill discovery.
 
 ## Personal Project Development Defaults
 
@@ -62,5 +63,5 @@ Treat this stack as a living preference rather than a frozen requirement. It may
 ## Governance
 
 - Scaffold every new repo per the Agent-Ready Project Standard before substantive work: root `AGENTS.md`, durable knowledge in `README`/`docs`, env example, stable verification scripts. Use the shared skills collection; keep project-owned skills in the repo, never in repo-local `.agents/skills`.
-- Improve guidance as you learn: after substantive work, propose an `AGENTS.md` amendment as a diff when a convention, gotcha, or stale line surfaced. One meaning per line; prune what the edit supersedes.
-- Leave guidance changes uncommitted for human review. The human approves by committing.
+- Improve guidance as you learn: when work exposes a missing convention, a gotcha, or a stale line, propose a minimal `AGENTS.md` diff in that session. Trigger on evidence — a failure the instructions would have prevented, a command that changed, a rule you had to infer — never on a schedule or general tidiness. One meaning per line; prune what the edit supersedes.
+- Leave guidance changes uncommitted for human review unless the project's own instructions say otherwise; the human approves by committing.
