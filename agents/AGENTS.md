@@ -2,8 +2,10 @@
 
 ## Ongoing work
 
-- For ongoing or open-ended work, proactively use the host agent's goal or equivalent persistent continuation mechanism when available, including in Codex, Claude Code, OpenCode, and MuseCode. Keep working across turns until the objective is met or the user stops or redirects it; report meaningful findings and blockers.
-- If the host has no such mechanism, record a clear checkpoint and state what is needed to continue; do not imply work will run unattended.
+- For ongoing or open-ended work, set a goal before starting: one objective, the evidence that proves it done, the constraints that must hold, and the stop condition. Keep working across turns until the goal is met, the user stops or redirects it, or a blocker needs a decision; report meaningful findings and blockers as they appear.
+- Codex, Claude Code, OpenCode 2.2.1+, and Muse Code all ship a native `/goal` command. Use it rather than re-prompting yourself or hand-rolling a loop, and check that the command exists before relying on it.
+- Close a goal only on the evidence it names: a passing check, a command exit, a clean status, an artifact. Never on the model's own confidence that the work looks complete.
+- If the host has no goal mechanism, record a clear checkpoint and state what is needed to continue; do not imply work will run unattended.
 
 ## Orchestration
 
@@ -56,3 +58,9 @@ Treat this stack as a living preference rather than a frozen requirement. It may
 - Update project guidance when requested or when a change makes existing instructions inaccurate. Keep documentation work proportional to the task.
 - Keep root guidance concise; put detailed procedures in version-controlled docs or repo-local skills.
 - Keep project-specific knowledge in its repository and cross-project preferences in global instructions. Exclude credentials, private transcripts, transient run status, and unconfirmed experiments.
+
+## Governance
+
+- Scaffold every new repo per the Agent-Ready Project Standard before substantive work: root `AGENTS.md`, durable knowledge in `README`/`docs`, env example, stable verification scripts. Use the shared skills collection; keep project-owned skills in the repo, never in repo-local `.agents/skills`.
+- Improve guidance as you learn: after substantive work, propose an `AGENTS.md` amendment as a diff when a convention, gotcha, or stale line surfaced. One meaning per line; prune what the edit supersedes.
+- Leave guidance changes uncommitted for human review. The human approves by committing.
