@@ -53,7 +53,6 @@ Reference behind the pointer in `agents/AGENTS.md`. Load only when work spans se
 - Feature entry shape: id, category, description as observable behavior, steps, status. Flip status to passing only after end-to-end verification as a human user would.
 - Start each session by reading the progress log, the feature list, and recent `git log`, then running `init.sh` and verifying baseline health before new work. Implement one feature at a time; end with a descriptive commit plus a progress entry. Keep the tree mergeable: no half-implemented undocumented features.
 - Git-track the handoff (spec, feature list, progress log, `init.sh`, code, tests). Keep transcripts, raw logs, scratch output, secrets, and generated runtime out of git.
-- Checkpoint contract: objective, steps done, current step, next step.
 - For builds where quality keeps drifting, add an evaluator with gradable criteria alongside planner and generator.
 
 ## Discover and review changes

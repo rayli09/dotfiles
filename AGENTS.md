@@ -24,10 +24,9 @@ project-owned skills remain outside this public repository.
 - Run `bash scripts/test-scripts.sh` for script behavior changes. Container
   integration commands and coverage limits live in `docs/setup.md`; run
   `scripts/test-linux-install.sh` only in its disposable integration image.
-- Preserve local uncommitted edits; validate changes before publishing.
 - Whenever you change this repository, run the relevant checks, commit your
   changes, and push to the remote before finishing the task. Include only the
-  task's changes in the commit; preserve unrelated local edits.
+  task's changes in the commit and preserve unrelated local edits.
 
 ## Agent goals
 

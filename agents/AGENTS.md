@@ -9,13 +9,11 @@
 
 ## Orchestration
 
-- Default to one main loop with progressively disclosed Skills and tools. Add delegation only after measuring a specific failure of the single loop.
-- Keep a subagent only for measurable context bloat, true parallel work in fresh contexts, or a tool or instruction conflict a single loop cannot resolve. Fold other specialists into Skills and tools; choose routing per branch in `docs/agents.md`.
+- Default to one main loop with progressively disclosed skills and tools. Add delegation only after measuring a specific failure of that loop, and keep a subagent only for measurable context bloat, truly parallel work in a fresh context, or a conflict one loop cannot resolve. Fold other specialists into skills; `docs/agents.md` owns the routing.
 
 ## Long-running work
 
-- Bridge context windows with committed artifacts (task list, notes, handoff state). Each session leaves a reusable checkpoint.
-- Prefer sessions with compaction over custom memory. Checkpoint contract: objective, steps done, current step, next step.
+- Bridge context windows with committed artifacts and a checkpoint contract: objective, steps done, current step, next step. Prefer sessions with compaction over custom memory.
 
 ## Agent-Ready Project Standard
 
@@ -40,7 +38,7 @@ Treat this stack as a living preference rather than a frozen requirement. It may
 
 ## Personal Feature Development Skills
 
-- Manage personal skills through the dotfiles repo: `skills-lock.json` owns upstream commit pins and custom selections; keep custom sources in `agents/personal-skills/`. Use the pinned Skills CLI for authoring and `scripts/install-skills.sh` for verified deployment to the shared `~/.agents/skills` collection. Read `~/.agents/README.md` before changing selections. Keep project-owned skills in their repositories and managed system skills/plugins in their managed locations; inspect existing capabilities before adding overlapping skills.
+- Manage personal skills through the dotfiles repo: `skills-lock.json` owns pins and selections, `agents/personal-skills/` owns custom sources, and `scripts/install-skills.sh` deploys to the shared `~/.agents/skills` collection. Read `~/.agents/README.md` first; `docs/agents.md` owns the details. Inspect existing capabilities before adding overlapping skills.
 - Inspect the available skills before substantial feature work. When a specialized workflow is missing, use `find-skills` and [skills.sh](https://skills.sh/) to discover relevant additions; recommend them before installing.
 - Treat [emilkowalski/skills](https://github.com/emilkowalski/skills) as a preferred collection for design-engineering work, including UI quality, animation review, motion opportunities, prototyping, and UI-library selection.
 
@@ -49,19 +47,25 @@ Treat this stack as a living preference rather than a frozen requirement. It may
 - Do not preserve backward compatibility. Remove obsolete paths instead of adding compatibility layers, fallbacks, or migrations.
 - Choose the simplest implementation that fully meets the current requirements. Avoid speculative abstractions, configuration, and indirection.
 - Grow the system in layers. Start from the smallest version that works end to end, and add each new capability on top of a product that already works. Never trade a working product for unfinished complexity.
-- Keep components modular and concerns clearly separated.
-- Prefer established, well-maintained libraries when they reduce overall complexity or improve reliability. Do not reimplement common functionality without a clear reason.
-- Lean on the dependencies already in the project before writing your own implementation or adding packages. Do not assume a library lacks a capability without checking its documentation and types.
+- Lean on the dependencies already in the project: check their docs and types before writing your own implementation or adding a package.
 - Make architectural decisions for the long term. Do not accept a stopgap that only works for now and is meant to be replaced later.
 
 ## Project guidance
 
-- Update project guidance when requested or when a change makes existing instructions inaccurate. Keep documentation work proportional to the task.
-- Keep root guidance concise; put detailed procedures in version-controlled docs or repo-local skills.
+- Update guidance when a change makes it inaccurate, and keep documentation proportional to the task. Root guidance stays concise; procedures live in version-controlled docs or skills and are linked, not restated.
 - Keep project-specific knowledge in its repository and cross-project preferences in global instructions. Exclude credentials, private transcripts, transient run status, and unconfirmed experiments.
+
+## Context engineering
+
+Guidance is context, and context is paid for on every turn: write only what the repo and the model cannot supply themselves.
+
+- Spend the words on taste, gotchas, and definitions of done; delete what the filesystem, the types, or a sensible default already settles.
+- Prefer structure to prose: a script, schema, enum, or test carries a constraint better than a paragraph.
+- Delegate judgment where the default is fine; keep absolutes for irreversible or safety-relevant actions.
+- State each rule once — repetition across files drifts into contradiction — and after a model upgrade, trim and re-verify against this repo's checks instead of trusting vendor evaluations.
 
 ## Governance
 
-- Scaffold every new repo per the Agent-Ready Project Standard before substantive work: root `AGENTS.md`, durable knowledge in `README`/`docs`, env example, stable verification scripts. Use the shared skills collection; keep project-owned skills in the repo, never in repo-local `.agents/skills`.
+- Apply the Agent-Ready Project Standard to every repo before substantive work. Keep project-owned skills in the repo, never in repo-local `.agents/skills`.
 - Improve guidance as you learn: when work exposes a missing convention, a gotcha, or a stale line, propose a minimal `AGENTS.md` diff in that session. Trigger on evidence — a failure the instructions would have prevented, a command that changed, a rule you had to infer — never on a schedule or general tidiness. One meaning per line; prune what the edit supersedes.
 - Leave guidance changes uncommitted for human review unless the project's own instructions say otherwise; the human approves by committing.
