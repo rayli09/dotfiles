@@ -45,6 +45,17 @@ Reference behind the pointer in `agents/AGENTS.md`. Load only when delegation is
 - Use `handoff` when the specialist should answer the user, `agent-as-tool` when the manager should synthesize the final answer.
 - Use `subagents` for single-session delegation that returns a result, `agent teams` for multi-session coordination with a shared task list.
 
+## Long-running
+
+Reference behind the pointer in `agents/AGENTS.md`. Load only when work spans sessions or resumes from a checkpoint.
+
+- Seed once per project: `init.sh` (boot the dev server, run a baseline check), `feature_list.json` (one entry per end-to-end behavior, all failing), a progress log (`claude-progress.txt` or `PROGRESS.md`, empty), then an initial git commit.
+- Feature entry shape: id, category, description as observable behavior, steps, status. Flip status to passing only after end-to-end verification as a human user would.
+- Start each session by reading the progress log, the feature list, and recent `git log`, then running `init.sh` and verifying baseline health before new work. Implement one feature at a time; end with a descriptive commit plus a progress entry. Keep the tree mergeable: no half-implemented undocumented features.
+- Git-track the handoff (spec, feature list, progress log, `init.sh`, code, tests). Keep transcripts, raw logs, scratch output, secrets, and generated runtime out of git.
+- Checkpoint contract: objective, steps done, current step, next step.
+- For builds where quality keeps drifting, add an evaluator with gradable criteria alongside planner and generator.
+
 ## Discover and review changes
 
 Activate the shared tools, then use `skills find`, `skills add <repo> --list`,
