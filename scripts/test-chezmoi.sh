@@ -29,6 +29,9 @@ CONFIG
   for path in .claude/CLAUDE.md .codex/AGENTS.md .config/opencode/AGENTS.md; do
     cmp "$destination/$path" "$source_path/agents/AGENTS.md"
   done
+  for f in settings.json client-settings.json keybindings.json; do
+    cmp "$destination/.t3/userdata/$f" "$source_path/private_dot_t3/userdata/$f"
+  done
   [[ -L "$destination/.claude/skills" ]]
   [[ -f "$destination/.claude/skills/agents-sdk/SKILL.md" ]]
   [[ ! -e "$destination/skills-lock.json" ]]
