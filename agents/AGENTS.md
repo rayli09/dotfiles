@@ -5,6 +5,16 @@
 - For ongoing or open-ended work, proactively use the host agent's goal or equivalent persistent continuation mechanism when available, including in Codex, Claude Code, OpenCode, and MuseCode. Keep working across turns until the objective is met or the user stops or redirects it; report meaningful findings and blockers.
 - If the host has no such mechanism, record a clear checkpoint and state what is needed to continue; do not imply work will run unattended.
 
+## Orchestration
+
+- Default to one main loop with progressively disclosed Skills and tools. Add delegation only after measuring a specific failure of the single loop.
+- Keep a subagent only for measurable context bloat, true parallel work in fresh contexts, or a tool or instruction conflict a single loop cannot resolve. Fold other specialists into Skills and tools; choose routing per branch in `docs/agents.md`.
+
+## Long-running work
+
+- Bridge context windows with committed artifacts (task list, notes, handoff state). Each session leaves a reusable checkpoint.
+- Prefer sessions with compaction over custom memory. Checkpoint contract: objective, steps done, current step, next step.
+
 ## Agent-Ready Project Standard
 
 Set up every new personal repository or development project for effective agent work from the start:
