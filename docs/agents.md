@@ -14,14 +14,14 @@ first. No third-party skill files are committed to this repository.
 
 ## Ownership
 
-- `skills-lock.json` is the Skills CLI-generated catalog: upstream commit pins,
-  exact skill paths, content hashes, and relative custom sources.
-- `agents/personal-skills/` owns custom skills and customized upstream variants.
+- `skills-lock.json` is the Skills CLI-generated catalog of pins, paths, hashes,
+  and relative custom sources; `agents/personal-skills/` owns the custom and
+  customized upstream variants.
 - `agents/runtime/` is the generated, ignored collection. The pinned Skills CLI
   in mise owns its contents; chezmoi only links `~/.agents/skills` to it.
-- Claude links to that same collection. Codex, Muse, and OpenCode discover the
-  shared collection directly. Keeping generated skills outside repository
-  `.agents/skills` avoids a second project-scope discovery path. `agents/AGENTS.md` owns shared instructions.
+- Claude links to that same collection; Codex, Muse, and OpenCode discover it
+  directly. Keeping generated skills outside repository `.agents/skills` avoids
+  a second project-scope discovery path.
 
 Project-owned skills stay in their projects. Managed system skills and plugins,
 credentials, providers, sessions, and MCP settings remain in their own locations.
@@ -44,6 +44,16 @@ Reference behind the pointer in `agents/AGENTS.md`. Load only when delegation is
 - Orchestrate repeatable work via code, open-ended work via LLM routing.
 - Use `handoff` when the specialist should answer the user, `agent-as-tool` when the manager should synthesize the final answer.
 - Use `subagents` for single-session delegation that returns a result, `agent teams` for multi-session coordination with a shared task list.
+
+## Goals
+
+Reference behind `/goal` in `agents/AGENTS.md`. Load when setting or resuming a goal.
+
+- Codex: `/goal` and `/goal edit`. The goal persists per thread and survives resume. The same model judges completion against evidence it gathered, so name a checkable target or it can declare victory early.
+- Claude Code: session-scoped. A separate evaluator model reads the transcript after each turn and cannot run tools, so verification output has to actually appear in the conversation.
+- OpenCode: native from 2.2.1. The whole goal runs as one execution, so the session never goes idle between continuations.
+- Muse Code: step probes re-anchor the agent after roughly ten no-progress calls, and a completion audit gates marking the goal done.
+- Codex, Claude Code, and OpenCode cap the objective at 4,000 characters; put longer context in a file and point the goal at it.
 
 ## Long-running
 

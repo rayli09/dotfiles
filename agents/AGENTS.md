@@ -3,7 +3,7 @@
 ## Ongoing work
 
 - For ongoing or open-ended work, set a goal before starting: one objective, the evidence that proves it done, the constraints that must hold, and the stop condition. Keep working across turns until the goal is met, the user stops or redirects it, or a blocker needs a decision; report meaningful findings and blockers as they appear.
-- Codex, Claude Code, OpenCode 2.2.1+, and Muse Code all ship a native `/goal` command. Use it rather than re-prompting yourself or hand-rolling a loop, and check that the command exists before relying on it.
+- Codex, Claude Code, OpenCode 2.2.1+, and Muse Code all ship a native `/goal` command; use it rather than re-prompting yourself or hand-rolling a loop. `docs/agents.md` records how each one judges completion.
 - Close a goal only on the evidence it names: a passing check, a command exit, a clean status, an artifact. Never on the model's own confidence that the work looks complete.
 - If the host has no goal mechanism, record a clear checkpoint and state what is needed to continue; do not imply work will run unattended.
 
