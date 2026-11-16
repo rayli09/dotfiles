@@ -47,6 +47,7 @@ install_apt_packages() {
     ripgrep \
     shellcheck \
     shfmt \
+    tailscale \
     tmux \
     tk-dev \
     unzip \
@@ -90,6 +91,22 @@ configure_github_cli_repository() {
 
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
     | as_root tee /etc/apt/sources.list.d/github-cli.list >/dev/null
+}
+
+configure_tailscale_repository() {
+  if [[ -f /etc/apt/sources.list.d/tailscale.list ]]; then
+    return
+  fi
+
+  local codename
+  codename="$(. /etc/os-release && echo "$VERSION_CODENAME")"
+
+  as_root install -d -m 0755 /usr/share/keyrings
+  curl -fsSL "https://pkgs.tailscale.com/stable/ubuntu/${codename}.noarmor.gpg" \
+    | as_root tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+
+  echo "deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu ${codename} main" \
+    | as_root tee /etc/apt/sources.list.d/tailscale.list >/dev/null
 }
 
 configure_cloudflared_repository() {
@@ -154,6 +171,7 @@ main() {
   configure_1password_cli_repository
   configure_github_cli_repository
   configure_cloudflared_repository
+  configure_tailscale_repository
   install_apt_packages
   install_symlinks
   bash "$source_path/scripts/install-tools.sh"
