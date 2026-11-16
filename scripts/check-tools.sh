@@ -24,6 +24,7 @@ checks = {
     "npm:typescript": (["tsc", "--version"], lambda text: text.split()[-1]),
     "aqua:astral-sh/ruff": (["ruff", "--version"], lambda text: text.split()[1]),
     "aqua:astral-sh/ty": (["ty", "--version"], lambda text: text.split()[1]),
+    "aqua:herdrdev/herdr": (["herdr", "--version"], lambda text: text.split()[1]),
 }
 assert tools.keys() == checks.keys(), "Update executable checks when changing tools"
 for name, (command, parse) in checks.items():
