@@ -12,6 +12,7 @@ go = "1.27.4"
 "npm:skills" = "1.8.1"
 "aqua:astral-sh/ruff" = "0.17.5"
 "aqua:astral-sh/ty" = "0.0.104"
+"aqua:herdrdev/herdr" = "0.9.5"
 
 [settings]
 lockfile = true
