@@ -1,1 +1,65 @@
-{"$schema":"https://docs.renovatebot.com/renovate-schema.json","dependencyDashboard":true,"extends":["config:recommended"],"labels":["dependencies"],"lockFileMaintenance":{"enabled":true,"schedule":["before 6am on the first day of the month"]},"packageRules":[{"automerge":true,"description":"Auto-merge minor and patch updates once CI is green","groupName":"all non-major","matchUpdateTypes":["minor","patch"]},{"automerge":false,"description":"Major updates wait for a human","matchUpdateTypes":["major"]}],"platformAutomerge":true,"prConcurrentLimit":3,"prHourlyLimit":2,"schedule":["before 6am on Monday"],"timezone":"America/Los_Angeles"}
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": true,
+  "extends": [
+    "config:recommended"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 6am on the first day of the month"
+    ]
+  },
+  "packageRules": [
+    {
+      "automerge": true,
+      "description": "Auto-merge minor and patch updates once CI is green",
+      "groupName": "all non-major",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "automerge": false,
+      "description": "Major updates wait for a human",
+      "matchUpdateTypes": [
+        "major"
+      ]
+    },
+    {
+      "automerge": false,
+      "description": "mise bootstrap bumps never auto-merge: checksums need a manual refresh first",
+      "groupName": "mise bootstrap",
+      "matchDepNames": [
+        "jdx/mise"
+      ]
+    }
+  ],
+  "platformAutomerge": true,
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "schedule": [
+    "before 6am on Monday"
+  ],
+  "timezone": "America/Los_Angeles",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "mise bootstrap pin, version line only. The MISE_SHA256_* lines in the same file must be refreshed from the release's SHASUMS256.txt before this PR can go green; the CI install step verifies them.",
+      "managerFilePatterns": [
+        "/^mise-bootstrap\\.env$/"
+      ],
+      "matchStrings": [
+        "MISE_VERSION=(?<currentValue>[0-9.]+)"
+      ],
+      "depNameTemplate": "jdx/mise",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "versioningTemplate": "semver"
+    }
+  ]
+}
