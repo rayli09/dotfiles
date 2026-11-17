@@ -9,7 +9,9 @@
 
 ## Orchestration
 
-- Default to one main loop with progressively disclosed skills and tools. Add delegation only after measuring a specific failure of that loop, and keep a subagent only for measurable context bloat, truly parallel work in a fresh context, or a conflict one loop cannot resolve. Fold other specialists into skills; `docs/agents.md` owns the routing.
+- Run a Chief of Staff pattern (after xAI's Grok Bot): one coordinator agent owns intake, prioritization, decomposition, delegation, tracking, verification, shared-state consolidation, and all reporting to the user. The user talks to the coordinator only.
+- Execution lanes are dedicated subagents defined by a role plus the skills it loads; `docs/agents.md` owns the roster. Brief each lane with a scoped outcome, its owned files and outputs, and its stop condition; lanes report only to the coordinator and never expand their scope.
+- Keep the coordinator lean: delegate only work that earns a lane (truly parallel work in a fresh context, measurable context bloat, or a conflict one loop cannot resolve), and do small tasks directly. Fold other specialists into skills; `docs/agents.md` owns the routing.
 
 ## Long-running work
 

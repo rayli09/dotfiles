@@ -45,6 +45,39 @@ Reference behind the pointer in `agents/AGENTS.md`. Load only when delegation is
 - Use `handoff` when the specialist should answer the user, `agent-as-tool` when the manager should synthesize the final answer.
 - Use `subagents` for single-session delegation that returns a result, `agent teams` for multi-session coordination with a shared task list.
 
+### Chief of Staff roster
+
+Roles are templates instantiated per task, not persistent agents: a lane is a
+fresh session briefed with its role, the skills below, and the task facts.
+Lanes inherit the coordinator's permissions, so a role's scope holds by brief
+and is verified on fan-in, not enforced by tooling.
+
+- **Chief of Staff** (the coordinator): loads no execution skills; owns
+  decomposition, delegation, tracking, verification, shared state, and the
+  final answer. The only role that talks to the user.
+- **Design engineer**: `emil-design-eng` plus the task-narrow Emil Kowalski
+  skills (`animate`, `animate-expo`, `review-animations`,
+  `improve-animations`, `find-animation-opportunities`,
+  `animation-vocabulary`, `animation-performance`, `apple-design`,
+  `mobile-native`, `write-swift`, `break-ui`, `ask-sonner`; `pick-ui-library`
+  and `prototype` are manual-only), plus `frontend-design` for new visual
+  direction. Owns UI and animation implementation and review.
+- **Implementer**: `tdd`, `codebase-design`, `domain-modeling`, and the
+  Cloudflare or project skills the routing above selects. Owns code changes
+  inside its briefed files only.
+- **Reviewer**: `code-review` (`review-animations` for motion). Reports
+  findings; edits only when the brief says so.
+- **Researcher**: `find-skills`, `public-market-signal-research`,
+  `positioning`, `seo-audit`, `web-perf`, as the task requires. Owns evidence
+  and options, never the decision.
+
+Fan-out and fan-in:
+
+- Fan out only independent lanes, each owning disjoint files and outputs;
+  never manufacture work to fill lanes. Small tasks stay with the coordinator.
+- The coordinator alone writes shared state files and reports to the user,
+  and verifies lane claims against checks or artifacts before reporting them.
+
 ## Goals
 
 Reference behind `/goal` in `agents/AGENTS.md`. Load when setting or resuming a goal.
