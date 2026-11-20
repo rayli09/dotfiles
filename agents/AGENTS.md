@@ -17,6 +17,10 @@
 
 - Bridge context windows with committed artifacts and a checkpoint contract: objective, steps done, current step, next step. Prefer sessions with compaction over custom memory.
 
+## Communication
+
+- Talk to me ELI5 by default and go deeper if I ask: lead with the plain-language version of an explanation, and expand into detail when asked.
+
 ## Agent-Ready Project Standard
 
 Set up every new personal repository or development project for effective agent work from the start:
