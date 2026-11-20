@@ -31,7 +31,7 @@ credentials, providers, sessions, and MCP settings remain in their own locations
 Use these pointers to pick the narrowest skill for the branch in front of you.
 Upstream descriptions are pinned; this table is the disambiguation layer.
 
-- For Cloudflare CLI or deploy flows, load `wrangler`. For Workers code review or authoring, load `workers-best-practices`. For stateful coordination, load `durable-objects`. For sandboxed execution, load `sandbox-sdk`. For page performance, load `web-perf`. Reach for the `cloudflare` umbrella only when the task spans several of these or is platform-level triage.
+- For Cloudflare CLI or deploy flows, load `wrangler`. For Workers code review or authoring, load `workers-best-practices`. For stateful coordination, load `durable-objects`. For sandboxed execution, load `sandbox-stable`. For page performance, load `web-perf`. Reach for the `cloudflare` umbrella only when the task spans several of these or is platform-level triage.
 - For building web animations, load `animate`. For React Native or Expo motion, load `animate-expo`. For auditing existing motion, load `review-animations` or `improve-animations`. For finding missing motion, load `find-animation-opportunities`. For vague motion wording, load `animation-vocabulary`. For frame drops, load `animation-performance`.
 - For new visual direction, load `frontend-design`. For consolidated design-engineering philosophy, load `emil-design-eng`.
 - `agents-sdk` in this catalog means Cloudflare Workers agents. For OpenAI Agents SDK or other providers, search upstream instead of loading this skill.
