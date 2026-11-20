@@ -98,14 +98,15 @@ configure_tailscale_repository() {
     return
   fi
 
-  local codename
+  local distro codename
+  distro="$(. /etc/os-release && echo "$ID")"
   codename="$(. /etc/os-release && echo "$VERSION_CODENAME")"
 
   as_root install -d -m 0755 /usr/share/keyrings
-  curl -fsSL "https://pkgs.tailscale.com/stable/ubuntu/${codename}.noarmor.gpg" \
+  curl -fsSL "https://pkgs.tailscale.com/stable/${distro}/${codename}.noarmor.gpg" \
     | as_root tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
 
-  echo "deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu ${codename} main" \
+  echo "deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/${distro} ${codename} main" \
     | as_root tee /etc/apt/sources.list.d/tailscale.list >/dev/null
 }
 
