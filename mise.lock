@@ -287,10 +287,10 @@ backend = "npm:oxfmt"
 specifiers = ["0.78.0"]
 
 [[tools."npm:skills"]]
-version = "1.8.1"
-aube = { path = ".mise/locks/npm-skills/1.8.1", digest = "sha256:feea553339456325640178c34bc369c6eee4070ef960e95660a708c4ebb4e138" }
+version = "1.7.4"
+aube = { path = ".mise/locks/npm-skills/1.7.4", digest = "sha256:67afd2a48b73163ecb5a413fed2b9c22b5419b46ac7c2d387aa2a9452e3a9184" }
 backend = "npm:skills"
-specifiers = ["1.8.1"]
+specifiers = ["1.7.4"]
 
 [[tools."npm:typescript"]]
 version = "7.0.2"
