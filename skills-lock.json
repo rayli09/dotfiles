@@ -3,73 +3,73 @@
   "skills": {
     "agents-sdk": {
       "source": "cloudflare/skills",
-      "ref": "e96fbc77bcedab03c5f00378103d6453ca8dafc0",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/agents-sdk/SKILL.md",
-      "computedHash": "cb669fba9289d500872584ea0daab1c5114f1c8f12a991f90871431d3fadbf3c"
+      "computedHash": "4f3b54344061bc14003142ecb6f0fe5d353cc238516d9aa7554eabf0ac92b2a2"
     },
     "animate": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/animate/SKILL.md",
-      "computedHash": "7598d33e7f60dd5c24531eaaa897621cc3bdb48e8050324211627973bc59c4ce"
+      "computedHash": "e0199f58d8defdebaf36a507165e4da0b6a45ee7f54c7c77376c87cd2c3df78a"
     },
     "animate-expo": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/animate-expo/SKILL.md",
-      "computedHash": "5de09593d564091f9db60aabede7bed760251e118548272050a247c653c417d2"
+      "computedHash": "9bcd72cb7364f5b8c2e3ff65f705e802f2f7850876dea9cf42e9ec5ac7b856cd"
     },
     "animation-performance": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/animation-performance/SKILL.md",
-      "computedHash": "b68ba704106e27b1f83df0cb817e09ec947abb76825d86eabdee2954b6c1bb84"
+      "computedHash": "5212a9ef4ef917f643056db71f961453344296b38a52431b6a1c74f0559caae0"
     },
     "animation-vocabulary": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/animation-vocabulary/SKILL.md",
-      "computedHash": "0058036865ecbb864fd0c4132efcc62425355d6e99c7e6ef6a936742d62a5dea"
+      "computedHash": "26f1367f61573455767f2b2cc1663923f636ad79a0e9e3e5234b80d00861ffbf"
     },
     "apple-design": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/apple-design/SKILL.md",
-      "computedHash": "0190417d092a0df447b000154e39733ea6d97efad6d3bec8a6ce3845aeb88914"
+      "computedHash": "cb864bd97f86d9ca5578274fb77dfc70d9ab278a22e3788b23e0b2d951f4e5b5"
     },
     "ask-sonner": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/ask-sonner/SKILL.md",
-      "computedHash": "8bd257b845985f4b35b603b510a126604176521094af79c4b7347ffeb8a8f7ab"
+      "computedHash": "5a46b138bc1fc711aaffc11cf99b94d417da641a301458d474943f72e0712092"
     },
     "break-ui": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/break-ui/SKILL.md",
-      "computedHash": "60ada67662925f4df5e3c6ff41cac3ab241b66f8898100a5ffcd7ba7196cb868"
+      "computedHash": "ab458c0ede6bf4bec5335b8c609cde26206597748db3bfb8c86d99d43837d89a"
     },
     "cloudflare": {
       "source": "cloudflare/skills",
-      "ref": "7c449def4e0c63daa27212d853094e4c8e37bbe8",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/cloudflare/SKILL.md",
-      "computedHash": "ecc9c0211c605451f7e8b437724f84810fe013d5ca6c653c51d046139d4ecbf7"
+      "computedHash": "1cce94a0fea413a5d5f9dd18d2a72cd90e925017c791eb6554be14f5bb777576"
     },
     "cloudflare-email-service": {
       "source": "cloudflare/skills",
-      "ref": "70c9cb7a211b1b6922712142e0daad4fadf9022b",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/cloudflare-email-service/SKILL.md",
-      "computedHash": "6274be056fe5211aa220833c97ff6a7d96a1cdfd8854a53ca839ca758d35f356"
+      "computedHash": "10e5b262f1e43b2a221708b54d93adb95f335480d317735bc701f70fa23ce879"
     },
     "code-review": {
       "source": "./agents/personal-skills/code-review",
@@ -78,10 +78,10 @@
     },
     "codebase-design": {
       "source": "mattpocock/skills",
-      "ref": "c0d69015e0cc8b66715beb3f93f9e53256e20f30",
+      "ref": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
       "sourceType": "github",
       "skillPath": "skills/engineering/codebase-design/SKILL.md",
-      "computedHash": "e6394592ecf4b5aa5bc93f95a20d0a56314788bde2e1221f87296d3becb734a2"
+      "computedHash": "aa11a96c08451f4ff86052d5da94004a8c97bb4ea41b2ac8a4300c189f66c89c"
     },
     "college-ps": {
       "source": "./agents/personal-skills/college-ps",
@@ -90,66 +90,66 @@
     },
     "domain-modeling": {
       "source": "mattpocock/skills",
-      "ref": "54bc6b604075c18293d38e9e294a2c96f365f104",
+      "ref": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
       "sourceType": "github",
       "skillPath": "skills/engineering/domain-modeling/SKILL.md",
-      "computedHash": "683744795bdc9fbfb6c0c2122c4b8119c950e2fe5bcbbf44237dd28aaea34b67"
+      "computedHash": "b3eb40152b81f0c98fd2095a023c019452dbdce56f7540cc67fece2972db8369"
     },
     "durable-objects": {
       "source": "cloudflare/skills",
-      "ref": "d3113039790f64e052ff80f351190da65e9b7510",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/durable-objects/SKILL.md",
-      "computedHash": "72efa2277fea08f43b393c74abaacc9fa575e20bc63bdc9d46829b8a39352852"
+      "computedHash": "55897720109876d5755ced452e069c5b6ef1010736642c937d5db49a6ddbf587"
     },
     "emil-design-eng": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/emil-design-eng/SKILL.md",
-      "computedHash": "51f2537e04d15911b41d78e2de24c36a0e26d41beae15e82a954fe5496a5eda9"
+      "computedHash": "479c09fe9e574178112bbbcd8473c60064539b9687a3c1a6ebd36e1c2370898e"
     },
     "find-animation-opportunities": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/find-animation-opportunities/SKILL.md",
-      "computedHash": "465d087c41768e4f14ed640dd049036009f613feb55baaa5831b68b33178f9d2"
+      "computedHash": "06efa7916c6c6996b5a8162d1ce1be7b3006f1de0c0a372aa065a57b19a0de7d"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
-      "ref": "66a7b901aad3b30f541f646199ff0df3050b764b",
+      "ref": "57217cf86ba38148a57af9e90d14a4c049558330",
       "sourceType": "github",
       "skillPath": "skills/find-skills/SKILL.md",
-      "computedHash": "6412eb4eb3b91595ebab937f0c69501240e7ba761b3d82510b5cf506ec5c7adc"
+      "computedHash": "913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396"
     },
     "frontend-design": {
       "source": "anthropics/skills",
-      "ref": "2235be7c60b551f5de82ade908fd3816455afcda",
+      "ref": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
       "sourceType": "github",
       "skillPath": "skills/frontend-design/SKILL.md",
-      "computedHash": "4eabc66183767153e404b39d1b839b1c37f2d82d86f0a0d7e880a579d8d62336"
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
     },
     "improve-animations": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/improve-animations/SKILL.md",
-      "computedHash": "524ea241e41d58bbdd8e288700fe24f5725e2a2f3ae7186ad7cebf9055058356"
+      "computedHash": "0ceb25784b6660c280a59dea039d9b5d56eb7dc54804dc1b6a908e47a9923f16"
     },
     "mobile-native": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/mobile-native/SKILL.md",
-      "computedHash": "f221cea36642168df6d3d6d7f236237cbf1ae669138ff7df07775674223d49ad"
+      "computedHash": "19a47e318bfcb2a1c2be346b79219758b296437800cc6226d2cb467233403d17"
     },
     "pick-ui-library": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/pick-ui-library/SKILL.md",
-      "computedHash": "5d2a77bf0ecafbda85aa95fb49999b6d77945d9066ec83d970b62e5b388cd686"
+      "computedHash": "c678a31d4b61cba9c8cda8e897bb7f1b0348011a59b67fc9fd0d431a2a0501aa"
     },
     "playwright": {
       "source": "./agents/personal-skills/playwright",
@@ -165,10 +165,10 @@
     },
     "prototype": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/prototype/SKILL.md",
-      "computedHash": "77be567d8c946608fdd15e61b62ab383cdf289a194dce2479828b7eda860d3ba"
+      "computedHash": "0a59ba7e30d4c1d778d1fbc6da8bbaef3c106aa4e7f81203088ebfedfb616495"
     },
     "public-market-signal-research": {
       "source": "./agents/personal-skills/public-market-signal-research",
@@ -177,10 +177,10 @@
     },
     "remotion-best-practices": {
       "source": "remotion-dev/skills",
-      "ref": "8a02b67126a977fdc8223c95e136da576dd86205",
+      "ref": "6f55706d1069e512430582ad86e4e57dc07afe1b",
       "sourceType": "github",
-      "skillPath": "skills/remotion/SKILL.md",
-      "computedHash": "362f679b370d733584b667e8959da6625036eaafb342d4999f93435cdc774b24"
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "computedHash": "123712a0e955c5778fcf5027540d8f78f9d0f8ab98c6a729009d7d976cda2683"
     },
     "resolving-merge-conflicts": {
       "source": "mattpocock/skills",
@@ -191,10 +191,10 @@
     },
     "review-animations": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/review-animations/SKILL.md",
-      "computedHash": "b4e5f0f4fe3e2743c85bf7354108f48a0b9d502cb20ef5c4a9c195da91f93736"
+      "computedHash": "5ff2799f778472c996f548b240cea5a519980f8fe41ffe9e92e17db655c596b2"
     },
     "sandbox-sdk": {
       "source": "cloudflare/skills",
@@ -205,59 +205,59 @@
     },
     "seo-audit": {
       "source": "coreyhaines31/marketingskills",
-      "ref": "30f9b9a729bbbe3da562fc1108c31f3a35afcca1",
+      "ref": "5b2b400eec1e7e1cec76245a715d0b0d4fd2a9c1",
       "sourceType": "github",
       "skillPath": "skills/seo-audit/SKILL.md",
-      "computedHash": "f2dc52130189068981f21e1c0bdc4471ac7cd9b08d8a1320604411aa0f950385"
+      "computedHash": "7d51a1c085387974b8c6d86ef28214624d06fa6b7c421dc0d3c117ed953986fb"
     },
     "tdd": {
       "source": "mattpocock/skills",
-      "ref": "8a475c438d90a2f1d7d3710c12658b60dc701a13",
+      "ref": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
       "sourceType": "github",
       "skillPath": "skills/engineering/tdd/SKILL.md",
-      "computedHash": "614ac2e45fb0ec02f6ce422d26bd9aa4e33aa4867323f5a3a5c0c20b96f78ff4"
+      "computedHash": "daf55026f456af104a72fa43247f7bcec89e5127316dc5b1b8d675d6a9d8ce94"
     },
     "web-perf": {
       "source": "cloudflare/skills",
-      "ref": "22a32f5f10eedd4428b26597406804ddf43b747d",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/web-perf/SKILL.md",
-      "computedHash": "7ae53856c320574f7440f50aef7892f96837eec9fd49d329d049d432fb4b299a"
+      "computedHash": "fa0a7b78991034a3840eac6d5f07c72eacc73fd68898e0238fbb83b7b4d4d884"
     },
     "wizard": {
       "source": "mattpocock/skills",
-      "ref": "cb7db0eeb6270b5534128dafcc1a59e3e7ab0472",
+      "ref": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
       "sourceType": "github",
       "skillPath": "skills/engineering/wizard/SKILL.md",
-      "computedHash": "2c0d1187398b1b7ebb9902a4c91b24181ee07892f285615b46c59f45e2c4229c"
+      "computedHash": "49298bed80e7f722b071ad5d64798c75eb705bbbe0635b9bbffd08cd6fb81647"
     },
     "workers-best-practices": {
       "source": "cloudflare/skills",
-      "ref": "426c3b406b3d3ef2ad3ca9bc2d3f41dd5be32ba0",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/workers-best-practices/SKILL.md",
-      "computedHash": "420e1ad3eaeb8ed2016e6b34fff3757de6aa39899ec2bd6e9784a29c38e70f9a"
+      "computedHash": "afc1b560659bcbbf043741e04a865b99e7d5b094bf62573d6188a8b26de235ab"
     },
     "wrangler": {
       "source": "cloudflare/skills",
-      "ref": "8c01b03b0a09a01581beed87b656cf634009e735",
+      "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
       "sourceType": "github",
       "skillPath": "skills/wrangler/SKILL.md",
-      "computedHash": "11edeb37eedb91deedde694b2bb1cc4ff4e8b5a8f1836c217a8c871fe39abcb5"
+      "computedHash": "6e431b3ca4d91547e3d1a224bfd5e725e54843cff3537aca48ea455a81bf7e88"
     },
     "write-swift": {
       "source": "emilkowalski/skills",
-      "ref": "2d228630ba1446365f614a108cb8252f1feda202",
+      "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
       "sourceType": "github",
       "skillPath": "skills/write-swift/SKILL.md",
-      "computedHash": "f20bb9cf51dbee1900b264820a12f1d3d378dc4d23ac758e7ba9e644c49a2459"
+      "computedHash": "9e3600d9866b1200f4353f480b9e9e095a6857bb6eb83f7a01e8605ea1760aa2"
     },
     "writing-for-agents": {
       "source": "mattpocock/skills",
-      "ref": "4aaccb58d40559d7e3c59a029b2290ae5ba538de",
+      "ref": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
       "sourceType": "github",
       "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
-      "computedHash": "ccfa1e94d8f6ab5c6a1edd55293ca477faf93c39207771331efdb1e798ed21d6"
+      "computedHash": "95da47fc97af998e85b7d7e6d57b3ac76727c1e290cfe9ea09005aacb826959f"
     }
   }
 }
