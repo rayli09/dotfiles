@@ -95,6 +95,13 @@
       "sourceType": "local",
       "computedHash": "ba54b1813852aac7916d32e56b2d230dc047df559d211576c1fe26ee680d4ecf"
     },
+    "design-taste-frontend": {
+      "source": "Leonxlnx/taste-skill",
+      "ref": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+      "sourceType": "github",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "computedHash": "acda6bf83f200405aa200eb245448fdc11cfce43d97bc2d9b8bf13a27f362d95"
+    },
     "domain-modeling": {
       "source": "mattpocock/skills",
       "ref": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
