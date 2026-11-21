@@ -50,6 +50,13 @@
       "skillPath": "skills/ask-sonner/SKILL.md",
       "computedHash": "5a46b138bc1fc711aaffc11cf99b94d417da641a301458d474943f72e0712092"
     },
+    "board": {
+      "source": "vercel/board",
+      "ref": "c2d3324b117adaa8e9a0107e15ea2fca207c95ac",
+      "sourceType": "github",
+      "skillPath": "skills/board/SKILL.md",
+      "computedHash": "9fa88973bdd9a305290eb008a8b262b009281f6d01a3eb08b4473c66f276e3ca"
+    },
     "break-ui": {
       "source": "emilkowalski/skills",
       "ref": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
