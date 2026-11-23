@@ -32,6 +32,7 @@ CONFIG
   for f in settings.json client-settings.json keybindings.json; do
     cmp "$destination/.t3/userdata/$f" "$source_path/private_dot_t3/userdata/$f"
   done
+  cmp "$destination/.config/zed/settings.json" "$source_path/private_dot_config/zed/settings.json"
   [[ -L "$destination/.claude/skills" ]]
   [[ -f "$destination/.claude/skills/agents-sdk/SKILL.md" ]]
   [[ ! -e "$destination/skills-lock.json" ]]
