@@ -58,21 +58,6 @@ jobs:
       - name: Test fresh install, repeat setup, and updates
         run: docker run --rm dotfiles-integration
 
-  windows-syntax:
-    name: PowerShell syntax
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Parse PowerShell scripts
-        shell: pwsh
-        run: |
-          Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object {
-            $tokens = $null
-            $errors = $null
-            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors) | Out-Null
-            if ($errors.Count) { throw ($errors | Out-String) }
-          }
-
   portable-tools:
     name: Portable tools (${{ matrix.os }})
     runs-on: ${{ matrix.os }}

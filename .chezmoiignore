@@ -4,7 +4,6 @@ Brewfile*
 Containerfile.*
 .dockerignore
 install.sh
-install.ps1
 mise-bootstrap.env
 skills-lock.json
 mise.toml
@@ -16,13 +15,5 @@ docs/**
 agents/**
 {{ if ne .chezmoi.os "darwin" }}
 Library/**
-{{ end }}
-{{ if eq .chezmoi.os "windows" }}
-.zshrc
-.agents/**
-.claude/skills
-.claude/CLAUDE.md
-.codex/AGENTS.md
-.config/opencode/AGENTS.md
 {{ end }}
 .tools/**

@@ -40,7 +40,7 @@ Node/npm, Bun, pnpm, Python/uv, Go, and quality tools under
 Wrangler is installed through the shared npm. System package managers may
 also install runtimes as dependencies of other packages.
 The shared editor extension list is `private_dot_config/vscode/extensions.txt`;
-macOS and Windows bootstrap/update scripts read it for VS Code and Cursor.
+macOS bootstrap/update scripts read it for VS Code and Cursor.
 
 ### tmux plugins
 
@@ -129,9 +129,3 @@ is checked, but daemon startup, system login behavior, and desktop applications
 require a VM or native machine. Rendering macOS templates on Linux verifies
 file contents only. Native macOS CI applies and checks macOS preferences.
 CI also runs the Linux installation flow on Ubuntu 24.04 and Debian Bookworm.
-
-## Windows
-
-Existing Windows scripts remain available, but the shared symlink-based agent
-setup is currently supported only on macOS and Linux. Use `install.ps1` and
-`scripts/smoke-windows.ps1` for the existing Windows tooling.
