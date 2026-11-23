@@ -42,6 +42,18 @@ also install runtimes as dependencies of other packages.
 The shared editor extension list is `private_dot_config/vscode/extensions.txt`;
 macOS and Windows bootstrap/update scripts read it for VS Code and Cursor.
 
+### tmux plugins
+
+The tmux configuration is synced, but its plugins are installed separately.
+On a new machine, install the tmux plugin manager once:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Start tmux, then press `Ctrl-b`, release it, and press `Shift-i` to install
+the plugins listed in `~/.tmux.conf`. Repeat that shortcut after adding a plugin.
+
 ## Updating packages
 
 `chezmoi update` pulls and applies dotfiles and agent skills. Update installed

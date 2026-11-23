@@ -33,6 +33,7 @@ CONFIG
     cmp "$destination/.t3/userdata/$f" "$source_path/private_dot_t3/userdata/$f"
   done
   cmp "$destination/.config/zed/settings.json" "$source_path/private_dot_config/zed/settings.json"
+  cmp "$destination/.tmux.conf" "$source_path/dot_tmux.conf"
   [[ -L "$destination/.claude/skills" ]]
   [[ -f "$destination/.claude/skills/agents-sdk/SKILL.md" ]]
   [[ ! -e "$destination/skills-lock.json" ]]
