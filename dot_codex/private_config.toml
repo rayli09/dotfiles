@@ -1079,13 +1079,11 @@ hide_rate_limit_model_nudge = true
 "gpt-5.3-codex" = "gpt-5.4"
 
 [features]
-multi_agent = true
+multi_agent_v2 = true
 prevent_idle_sleep = true
 memories = true
-rmcp_client = true
 terminal_resize_reflow = true
 chronicle = true
-suppress_unstable_features_warning = true
 js_repl = false
 local_thread_store_compression = true
 analytics_plan_history = true
