@@ -21,7 +21,9 @@ ignored files; credentials are not copied by this repository.
 
 macOS uses Homebrew. Linux supports apt-based Ubuntu/Debian, with a normal user
 and `sudo`; other distributions are not supported by the installer. For a new
-root-only server, run `scripts/bootstrap-root.sh <username>` first, then sign
+root-only server, first create the user with dev-workbench's
+`bootstrap/bootstrap-root.sh <username>` (machine provisioning lives in
+rayli09/dev-workbench), then sign
 in as that user. The bootstrap installs substantial dev tooling; rerunning it
 also updates the package set.
 
