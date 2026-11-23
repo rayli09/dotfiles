@@ -1,6 +1,10 @@
+{{- $gitSigningKey := "" }}{{ if hasKey . "git_signing_key" }}{{ $gitSigningKey = .git_signing_key }}{{ end -}}
 [user]
 	name = {{ .git_name | quote }}
 	email = {{ .git_email | quote }}
+{{- if $gitSigningKey }}
+	signingkey = {{ $gitSigningKey | quote }}
+{{- end }}
 
 [init]
 	defaultBranch = main
@@ -14,14 +18,39 @@
 [rerere]
 	enabled = true
 
+[branch]
+	sort = -committerdate
+
+[column]
+	ui = auto
+
+[fetch]
+	writeCommitGraph = true
+
+[rebase]
+	updateRefs = true
+
 [core]
 {{ if eq .chezmoi.os "darwin" }}	editor = code --wait
 {{ else }}	editor = vi
 {{ end }}
 	excludesfile = ~/.gitignore_global
+	fsmonitor = true
 
 {{ if eq .chezmoi.os "darwin" }}
 [credential]
 	helper = osxkeychain
 {{ end }}
+{{/* Set git_signing_key in chezmoi data to the path of an SSH public key
+     (e.g. "~/.ssh/id_ed25519.pub") to enable SSH commit and tag signing.
+     Unset (the default), no signing configuration is rendered. */}}
+{{- if $gitSigningKey }}
+[gpg]
+	format = ssh
 
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
+{{ end }}
