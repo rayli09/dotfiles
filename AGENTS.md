@@ -30,6 +30,7 @@ project-owned skills remain outside this public repository.
 
 | Need | Location |
 | --- | --- |
+| Everyday entry point | `dot` (repo root), a thin dispatcher over the scripts and chezmoi commands below; `dot help` lists the verbs |
 | Shared tool pins | `mise.toml`, `mise.lock`, `.mise/locks/`; `mise-bootstrap.env` pins mise itself |
 | Skills catalog (upstream selections, pins, hashes) | `skills-lock.json`; restored by `scripts/install-skills.sh` into ignored `agents/runtime/` |
 | Custom skill sources | `agents/personal-skills/` |
