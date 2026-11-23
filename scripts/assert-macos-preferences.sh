@@ -8,6 +8,8 @@ usage() {
 Usage: scripts/assert-macos-preferences.sh
 
 Read macOS preferences and verify the values managed by scripts/macos-defaults.sh.
+The checks are derived from `scripts/macos-defaults.sh --dry-run`, so a
+preference added there is asserted here automatically.
 This script does not change system settings.
 EOF
 }
@@ -77,27 +79,86 @@ assert_hotkey() {
   fi
 }
 
-assert_default NSGlobalDomain AppleShowAllExtensions "1"
-assert_default com.apple.finder AppleShowAllFiles "1"
-assert_default com.apple.finder ShowPathbar "1"
-assert_default com.apple.finder ShowStatusBar "1"
-assert_default com.apple.finder FXEnableExtensionChangeWarning "0"
-assert_default com.apple.dock autohide "0"
-assert_default com.apple.dock show-recents "0"
-assert_default com.apple.dock mru-spaces "0"
-assert_default NSGlobalDomain ApplePressAndHoldEnabled "0"
-assert_default NSGlobalDomain KeyRepeat "2"
-assert_default NSGlobalDomain InitialKeyRepeat "15"
-assert_default com.apple.screencapture type "png"
-assert_default com.apple.screencapture show-thumbnail "0"
-assert_default com.apple.screensaver askForPassword "1"
-assert_default com.apple.screensaver askForPasswordDelay "0"
-assert_default com.apple.Terminal SecureKeyboardEntry "1"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-assert_hotkey 64 "Spotlight search: Cmd-Space" "1" "32" "49" "1048576"
-assert_hotkey 65 "Finder search window: Cmd-Option-Space" "1" "32" "49" "1572864"
-assert_hotkey 60 "Previous input source: Ctrl-Space" "1" "32" "49" "262144"
-assert_hotkey 61 "Next input source: Ctrl-Option-Space" "1" "32" "49" "786432"
+writes=0
+checks=0
+
+# Turn one `+ defaults write ...` dry-run line into a check. The dry-run
+# prints arguments %q-quoted; stripping the backslash escapes yields plain
+# words for every value macos-defaults.sh currently writes.
+check_write() {
+  local line="$1"
+  local body="${line#+ defaults write }"
+  local clean="${body//\\/}"
+  local -a words
+  read -ra words <<< "$clean"
+
+  local domain="${words[0]}"
+  local key="${words[1]}"
+  local type="${words[2]}"
+
+  case "$type" in
+    -bool)
+      local expected=0
+      [[ "${words[3]}" == "true" ]] && expected=1
+      assert_default "$domain" "$key" "$expected"
+      checks=$((checks + 1))
+      ;;
+    -int)
+      assert_default "$domain" "$key" "${words[3]}"
+      checks=$((checks + 1))
+      ;;
+    -string)
+      assert_default "$domain" "$key" "${words[*]:3}"
+      checks=$((checks + 1))
+      ;;
+    -dict-add)
+      # Only com.apple.symbolichotkeys uses -dict-add; its entries are
+      # nested plists, so they are read back with PlistBuddy instead.
+      local id="${words[3]}"
+      local enabled key_code char_code modifiers
+      if [[ "$clean" =~ enabled\ =\ ([0-9]+) ]]; then
+        enabled="${BASH_REMATCH[1]}"
+      else
+        fail "$domain $key $id: no enabled value in dry-run line: $line"
+        return
+      fi
+      if [[ "$clean" =~ parameters\ =\ \(([0-9]+),\ ([0-9]+),\ ([0-9]+)\) ]]; then
+        key_code="${BASH_REMATCH[1]}"
+        char_code="${BASH_REMATCH[2]}"
+        modifiers="${BASH_REMATCH[3]}"
+      else
+        fail "$domain $key $id: no parameters in dry-run line: $line"
+        return
+      fi
+      assert_hotkey "$id" "$domain $key $id" "$enabled" "$key_code" "$char_code" "$modifiers"
+      checks=$((checks + 1))
+      ;;
+    *)
+      fail "unhandled defaults write type '$type' in dry-run line: $line"
+      ;;
+  esac
+}
+
+while IFS= read -r line; do
+  case "$line" in
+    '+ defaults write '*)
+      writes=$((writes + 1))
+      check_write "$line"
+      ;;
+  esac
+done < <(bash "$script_dir/macos-defaults.sh" --dry-run)
+
+if ((writes == 0)); then
+  echo "No defaults writes found in macos-defaults.sh --dry-run output." >&2
+  exit 1
+fi
+
+if ((checks != writes)); then
+  printf "\nGenerated %d check(s) for %d managed write(s); coverage is incomplete.\n" "$checks" "$writes" >&2
+  exit 1
+fi
 
 if ((failures)); then
   printf "\n%d preference assertion(s) failed.\n" "$failures" >&2
