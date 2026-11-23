@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Thin dispatcher over this repository's scripts and chezmoi commands.
+# It holds no logic of its own: each verb execs the existing entry point,
+# passing any extra arguments through.
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+usage() {
+  cat <<'EOF'
+Usage: dot <command> [args...]
+
+Extra arguments are passed through to the underlying script or command.
+
+  install   Install chezmoi, apply dotfiles, run the OS bootstrap (install.sh)
+  apply     Apply dotfiles to this machine (chezmoi apply)
+  update    Pull the latest dotfiles and apply them (chezmoi update)
+  diff      Show pending dotfile changes (chezmoi diff)
+  edit      Open the dotfiles source in your editor (chezmoi edit)
+  check     Run the repository checks (scripts/check.sh)
+  doctor    Check this machine's deployed health (scripts/doctor.sh)
+  skills    Restore the skills catalog from skills-lock.json (scripts/install-skills.sh)
+  tools     Install or update the portable mise tools (scripts/install-tools.sh)
+  help      Show this help
+EOF
+}
+
+verb="${1:-help}"
+if [[ $# -gt 0 ]]; then
+  shift
+fi
+
+case "$verb" in
+  install) exec bash "$repo_root/install.sh" "$@" ;;
+  apply) exec chezmoi apply "$@" ;;
+  update) exec chezmoi update "$@" ;;
+  diff) exec chezmoi diff "$@" ;;
+  edit) exec chezmoi edit "$@" ;;
+  check) exec bash "$repo_root/scripts/check.sh" "$@" ;;
+  doctor) exec bash "$repo_root/scripts/doctor.sh" "$@" ;;
+  skills) exec bash "$repo_root/scripts/install-skills.sh" "$@" ;;
+  tools) exec bash "$repo_root/scripts/install-tools.sh" "$@" ;;
+  help | -h | --help) usage ;;
+  *)
+    printf 'dot: unknown command: %s\n\n' "$verb" >&2
+    usage >&2
+    exit 2
+    ;;
+esac

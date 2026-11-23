@@ -6,6 +6,7 @@ cd "$source_path"
 
 scripts=(
   install.sh
+  dot
   packages/*.sh
   scripts/*.sh
 )

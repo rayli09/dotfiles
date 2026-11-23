@@ -28,4 +28,9 @@ chezmoi diff
 chezmoi apply
 ```
 
+## Day-to-day
+
+From a checkout, `./dot` wraps the common operations (`./dot help` lists
+them): apply, update, diff, edit, check, doctor, skills, and tools.
+
 [Sandbox tools](docs/tools.md) · [Setup, package updates, and testing](docs/setup.md) · [Agent setup](docs/agents.md)
