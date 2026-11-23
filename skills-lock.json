@@ -224,6 +224,34 @@
       "skillPath": "skills/engineering/tdd/SKILL.md",
       "computedHash": "daf55026f456af104a72fa43247f7bcec89e5127316dc5b1b8d675d6a9d8ce94"
     },
+    "ui-sdk-expert-review": {
+      "source": "vercel-labs/ui",
+      "ref": "703af017c5659f56ac43953b3a7e4c612c59cb58",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ui-sdk-expert-review/SKILL.md",
+      "computedHash": "4cd6284029fb8ec85f5e2c9996348f8b40f8102399f10b5b12eb0a0a9934833f"
+    },
+    "ui-sdk-unslop": {
+      "source": "vercel-labs/ui",
+      "ref": "703af017c5659f56ac43953b3a7e4c612c59cb58",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ui-sdk-unslop/SKILL.md",
+      "computedHash": "ad996fe5bfbe928e2305cc7fd5bb901509a2ff1ae33dd68f7549261576897f6a"
+    },
+    "ui-sdk-write-code": {
+      "source": "vercel-labs/ui",
+      "ref": "703af017c5659f56ac43953b3a7e4c612c59cb58",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ui-sdk-write-code/SKILL.md",
+      "computedHash": "0c0adf7131637843c2f60cda605c1e32a61bec4a3c0437ca079240b112fd29d7"
+    },
+    "ui-sdk-write-docs": {
+      "source": "vercel-labs/ui",
+      "ref": "703af017c5659f56ac43953b3a7e4c612c59cb58",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/ui-sdk-write-docs/SKILL.md",
+      "computedHash": "ce8f80a981524561d2b41ccf7150ff57dc290e1c4cdd04643b12d5e7c8d104ba"
+    },
     "web-perf": {
       "source": "cloudflare/skills",
       "ref": "5108325ecceabc899c761e07aa617b09c02445ee",
