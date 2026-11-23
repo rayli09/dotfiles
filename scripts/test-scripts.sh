@@ -29,6 +29,9 @@ cat > "$test_root/source/scripts/tools-env.sh" <<'ACTIVATE'
 export DOTFILES_TOOLS_PREFIX="$TEST_PREFIX/tools"
 printf 'shared activate\n' >> "$TEST_LOG"
 ACTIVATE
+# The editor-extension installer is exercised for real against the stub
+# editors and the fake extension list above.
+ln -s "$source_path/scripts/install-editor-extensions.sh" "$test_root/source/scripts/install-editor-extensions.sh"
 ln -s /bin/bash "$test_root/bin/bash"
 chmod +x "$test_root/bin/stub"
 for command in chezmoi brew mise npm code cursor corepack mas fzf sudo apt-get; do
@@ -43,11 +46,26 @@ run_script() {
     /bin/bash "$source_path/scripts/$1" > "$test_root/output" 2>&1
 }
 
+# wrangler has exactly one owner: scripts/install-tools.sh. The harness stubs
+# install-tools.sh, so ownership of the real file is asserted statically here;
+# the per-script runs below prove callers invoke the owner and never npm
+# directly.
+wrangler_owners="$(grep -rl 'wrangler@latest' "$source_path/scripts" "$source_path/packages" | grep -vx "$source_path/scripts/test-scripts.sh" || true)"
+if [[ "$wrangler_owners" != "$source_path/scripts/install-tools.sh" ]]; then
+  echo "wrangler@latest must be installed only by scripts/install-tools.sh; found in:" >&2
+  echo "$wrangler_owners" >&2
+  exit 1
+fi
+printf 'ok   wrangler: single owner (scripts/install-tools.sh)\n'
+
 for script in bootstrap-macos.sh update-macos.sh update-ubuntu.sh; do
   : > "$test_root/calls"
   run_script "$script"
   grep -q '^shared install$' "$test_root/calls"
-  grep -Fq "npm install -g --prefix $test_root/tools wrangler@latest" "$test_root/calls"
+  if grep -q '^npm ' "$test_root/calls"; then
+    echo "$script calls npm directly; wrangler belongs to install-tools.sh" >&2
+    exit 1
+  fi
   if grep -Eq '^(mise |bun upgrade|uv self update|brew upgrade (bun|uv))' "$test_root/calls"; then
     echo "Shared tool ownership bypassed in $script" >&2
     exit 1
@@ -59,16 +77,16 @@ for script in bootstrap-macos.sh update-macos.sh update-ubuntu.sh; do
       diff -u "$test_root/expected" "$test_root/actual"
     done
   fi
-  for failure in 'shared install' 'npm install'; do
-    if run_script "$script" "$failure"; then
-      echo "$script hid failure: $failure" >&2
-      exit 1
-    fi
-    if grep -q 'complete\.' "$test_root/output"; then
-      echo "$script reported completion after a failure" >&2
-      exit 1
-    fi
-  done
+  # install-tools.sh owns the tool installs (wrangler included); its failure
+  # must propagate and must not be reported as completion.
+  if run_script "$script" 'shared install'; then
+    echo "$script hid failure: shared install" >&2
+    exit 1
+  fi
+  if grep -q 'complete\.' "$test_root/output"; then
+    echo "$script reported completion after a failure" >&2
+    exit 1
+  fi
   if [[ "$script" != update-ubuntu.sh ]]; then
     if run_script "$script" 'cursor --install-extension'; then
       echo "$script hid an editor installation failure" >&2

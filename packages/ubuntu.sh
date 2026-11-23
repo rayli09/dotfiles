@@ -18,10 +18,11 @@ set -euo pipefail
 # fd-find installs fdfind (linked as fd); bat installs batcat (linked as bat).
 #
 # Deliberate upstream installs, bypassing apt entirely: Docker via the
-# get.docker.com script, Starship via the starship.rs installer, and
-# wrangler via npm (@latest). Language runtimes come from mise
-# (scripts/install-tools.sh); the apt python3 and lib*-dev packages are
-# build prerequisites for it, not the runtime source.
+# get.docker.com script and Starship via the starship.rs installer.
+# Language runtimes come from mise (scripts/install-tools.sh), which also
+# installs wrangler as an npm global into the shared tools prefix; the apt
+# python3 and lib*-dev packages are build prerequisites for it, not the
+# runtime source.
 
 source_path="$(chezmoi source-path)"
 cd "$source_path"
@@ -158,14 +159,6 @@ install_symlinks() {
   fi
 }
 
-install_node_globals() {
-  if ! has npm; then
-    return
-  fi
-
-  npm install -g --prefix "$DOTFILES_TOOLS_PREFIX" wrangler@latest
-}
-
 install_docker() {
   if has docker; then
     return
@@ -200,7 +193,6 @@ main() {
   install_symlinks
   bash "$source_path/scripts/install-tools.sh"
   source "$source_path/scripts/tools-env.sh"
-  install_node_globals
   install_docker
   install_starship
   set_default_shell

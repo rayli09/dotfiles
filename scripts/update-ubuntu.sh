@@ -15,4 +15,3 @@ fi
 
 bash "$source_path/scripts/install-tools.sh"
 source "$source_path/scripts/tools-env.sh"
-npm install -g --prefix "$DOTFILES_TOOLS_PREFIX" wrangler@latest

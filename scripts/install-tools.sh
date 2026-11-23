@@ -31,6 +31,13 @@ cp -R "$repo_root/.mise/locks" "$MISE_CONFIG_DIR/.mise/"
 mise trust "$repo_root/mise.toml"
 MISE_CEILING_PATHS="$DOTFILES_TOOLS_PREFIX" mise --cd "$DOTFILES_TOOLS_PREFIX" install --locked
 MISE_CEILING_PATHS="$DOTFILES_TOOLS_PREFIX" mise --cd "$DOTFILES_TOOLS_PREFIX" reshim
+
+# wrangler is an npm global into the shared tools prefix, not a mise tool.
+# This is its single owner: bootstrap/update scripts must not install it.
+if command -v npm >/dev/null 2>&1; then
+  npm install -g --prefix "$DOTFILES_TOOLS_PREFIX" wrangler@latest
+fi
+
 bash "$repo_root/scripts/check-tools.sh"
 install -m 0644 "$repo_root/scripts/tools-env.sh" "$DOTFILES_TOOLS_PREFIX/env.sh"
 printf 'Tools installed. Activate with: source "%s/env.sh"\n' "$DOTFILES_TOOLS_PREFIX"

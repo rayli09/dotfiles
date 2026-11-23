@@ -37,10 +37,12 @@ live in `~/.config/chezmoi/chezmoi.toml`; these are not committed.
 Homebrew/apt own system tools and desktop apps. Mise owns
 Node/npm, Bun, pnpm, Python/uv, Go, and quality tools under
 `~/.local/share/dotfiles-tools`. Zsh activates that installation when present.
-Wrangler is installed through the shared npm. System package managers may
+Wrangler is installed by `scripts/install-tools.sh` through the shared npm.
+System package managers may
 also install runtimes as dependencies of other packages.
 The shared editor extension list is `private_dot_config/vscode/extensions.txt`;
-macOS bootstrap/update scripts read it for VS Code and Cursor.
+`scripts/install-editor-extensions.sh` reads it for VS Code and Cursor, and
+the macOS bootstrap/update scripts call that script.
 
 ### tmux plugins
 
