@@ -1,5 +1,28 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
+# Package exceptions — read before editing the lists below.
+#
+# This script serves both Ubuntu and Debian (see scripts/bootstrap-linux.sh).
+# Anything that deviates from "install the distro package" must be noted
+# here and inline, with the reason:
+#
+# Vendor apt repositories (configured below, before install_apt_packages):
+# 1password-cli, gh, tailscale, and cloudflared come from their vendors'
+# repositories, not the distro's. The Tailscale repository URL reads the
+# distro ID and codename from /etc/os-release; never hardcode them — a
+# hardcoded "ubuntu" 404'd on Debian (fixed Nov 20, 2026).
+#
+# Distro renames (the installed binary differs from the command name we
+# standardize on); install_symlinks bridges them into ~/.local/bin:
+# fd-find installs fdfind (linked as fd); bat installs batcat (linked as bat).
+#
+# Deliberate upstream installs, bypassing apt entirely: Docker via the
+# get.docker.com script, Starship via the starship.rs installer, and
+# wrangler via npm (@latest). Language runtimes come from mise
+# (scripts/install-tools.sh); the apt python3 and lib*-dev packages are
+# build prerequisites for it, not the runtime source.
+
 source_path="$(chezmoi source-path)"
 cd "$source_path"
 
